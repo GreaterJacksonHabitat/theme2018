@@ -52,6 +52,15 @@
 
 // Tablet and desktop menu
 
+.sticky-top-bar {
+  background-color: $primary-color;
+  
+  &, * {
+    transition: ease all 300ms;
+  }
+  
+}
+
 .top-bar {
 
   .top-bar-title a {
@@ -62,7 +71,7 @@
   }
 
   .menu a {
-    color: #e6e6e6;
+    color: #fff;
     padding-top: 0;
     padding-bottom: 0;
     font-weight: bold;
@@ -103,21 +112,73 @@
   float:right;
 }
 
+.svg-container.small-version {
+  display: none;
+}
+
 @include breakpoint(small only) {
 
   .title-bar {
+    
+    padding: 0;
 
     svg {
       width: 75%;
       margin-top: 1rem;
-      margin-left: 1rem;
+      margin-left: 0.5rem;
     }
     
     .menu-icon {
-      margin-left: 0.75rem;
       margin-top: 3.25rem;
+      margin-right: 0.5rem;
     }
 
   }
+  
+  .is-stuck.sticky-top-bar {
+    
+    .title-bar-title {
+      margin-top: 2.25rem;
+    }
+    
+    .menu-icon {
+      margin-top: 4.25rem;
+    }
+    
+    .svg-container {
+      
+      display: none;
+      
+      &.small-version {
+        display: inline-block;
+      }
+      
+    }
+    
+  }
 
+}
+
+@include breakpoint(medium) {
+  
+  .is-stuck.sticky-top-bar {
+    
+    .top-bar-title {
+      margin-top: -1rem;
+      margin-bottom: -1rem;
+    }
+    
+    .svg-container {
+      
+      svg {
+      
+        width: 70%;
+        height: auto;
+        
+      }
+      
+    }
+    
+  }
+  
 }
