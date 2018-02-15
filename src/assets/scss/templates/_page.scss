@@ -67,5 +67,31 @@
 		}
 
 	}
+	
+	.extra-meta-section {
+		
+		margin-top: rem-calc(60);
+		
+		.extra-meta {
+			
+			background-color: $primary-color;
+			
+			&, h1, h2, h3, h4, h5, h6 {
+				@include light-or-dark-text( $primary-color );
+			}
+			
+		}
+		
+		.extra-meta, .events {
+			
+			padding: 1rem;
+			
+			@include breakpoint(medium) {
+				padding: 7rem;
+			}
+			
+		}
+		
+	}
 
 }

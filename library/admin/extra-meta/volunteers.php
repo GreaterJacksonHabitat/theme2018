@@ -33,14 +33,6 @@ function greater_jackson_habitat_add_volunteer_metaboxes() {
 		'page',
 		'normal'
 	);
-	
-	add_meta_box(
-		'volunteer-become-meta',
-		__( '"Become a Volunteer" Section', 'greater-jackson-habitat-theme' ),
-		'greater_jackson_habitat_volunteer_become_metabox_content',
-		'page',
-		'normal'
-	);
     
 }
 
@@ -74,23 +66,5 @@ function greater_jackson_habitat_volunteer_faq_metabox_content() {
 	) );
 	
 	greater_jackson_habitat_init_field_group( 'volunteer_faqs' );
-	
-}
-
-/**
- * Adds Become a Volunteer Metabox
- * 
- * @since		1.0.0
- * @return		void
- */
-function greater_jackson_habitat_volunteer_become_metabox_content() {
-	
-	greater_jackson_habitat_do_field_textarea( array(
-		'name' => 'volunteer_become',
-		'group' => 'volunteer_become',
-		'wysiwyg' => true,
-	) );
-	
-	greater_jackson_habitat_init_field_group( 'volunteer_become' );
 	
 }

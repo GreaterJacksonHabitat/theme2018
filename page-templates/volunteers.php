@@ -57,4 +57,6 @@ do_action( 'foundationpress_before_content' ); ?>
 	</div>
 </div>
 
-<?php get_footer();
+<?php get_template_part( 'template-parts/interior', 'footer' );
+
+get_footer();

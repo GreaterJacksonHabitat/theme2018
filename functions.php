@@ -101,6 +101,7 @@ require_once( 'library/rbm-field-helpers-functions.php' );
 
 // Extra Meta
 require_once( 'library/admin/extra-meta/front-page.php' );
+require_once( 'library/admin/extra-meta/page.php' );
 require_once( 'library/admin/extra-meta/volunteers.php' );
 
 // Shortcodes
