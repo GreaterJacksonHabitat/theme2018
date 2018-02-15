@@ -20,7 +20,10 @@ while ( have_posts() ) : the_post(); ?>
 			</div>
 			
 			<div class="expanded row tagline">
-				<div class="small-12 columns">
+				<div class="small-12 medium-4 columns hide-for-small-only">
+					&nbsp;
+				</div>
+				<div class="small-12 medium-8 columns">
 					<?php the_content(); ?>
 				</div>
 			</div>

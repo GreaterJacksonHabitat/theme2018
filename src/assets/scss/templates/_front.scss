@@ -1,81 +1,93 @@
 .home {
 
-  // Transparent to overlay on top of Hero
-  .sticky-top-bar {
-    background: transparent;
-  }
-	
-  .is-stuck.sticky-top-bar {
-    @include background-opacity( $primary-color, 0.6 );
-  }
+	// Transparent to overlay on top of Hero
+	.sticky-top-bar {
+		background: transparent;
+	}
 
-  .site-header {
+	.is-stuck.sticky-top-bar {
+		@include background-opacity( $primary-color, 0.6 );
+	}
 
-    position: absolute;
-    width: 100%;
-    z-index: 999;
+	.site-header {
 
-    .top-bar, .title-bar {
-      position: relative;
-    }
+		position: absolute;
+		width: 100%;
+		z-index: 999;
 
-  }
+		.top-bar, .title-bar {
+			position: relative;
+		}
 
-  .front-hero {
+	}
 
-    position: relative;
+	.front-hero {
 
-    margin: 0 0 rem-calc(32);
-    height: auto;
-    padding: rem-calc(175%) 0 rem-calc(25%) 0;
+		position: relative;
 
-    @include breakpoint(medium) {
-      padding: rem-calc(400%) 0;
-      height: rem-calc(685);
-      margin: 0 0 rem-calc(72);  
-    }
+		margin: 0 0 rem-calc(32);
+		height: auto;
+		padding: rem-calc(175%) 0 rem-calc(25%) 0;
 
-    .marketing {
+		@include breakpoint(medium) {
+			padding: rem-calc(500%) 0;
+			height: rem-calc(750);
+			margin: 0 0 rem-calc(72);  
+		}
 
-      @include xy-grid;
+		.marketing {
 
-      & > * {
-        position: relative;
-      }
+			@include xy-grid;
+			
+			color: #fff;
+			
+			@extend h1;
+			
+			font-weight: 700;
+			
+			@include breakpoint(medium) {
+				margin-top: rem-calc(-300%);
+			}
 
-    }
+			& > * {
+				position: relative;
+			}
 
-    .image {
-      position: absolute;
+		}
 
-      .color-overlay {
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        //background-color: rgba( 240, 240, 240, 0.86 );
-      }
+		.image {
+			position: absolute;
 
-      @include breakpoint(small) {
-        background: url('../images/front-page/hero.jpg') bottom left;
-        background-size: cover;
-        background-position: bottom left;
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-      }
+			.color-overlay {
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				bottom: 0;
+				//background-color: rgba( 240, 240, 240, 0.86 );
+			}
 
-      @include breakpoint(medium) {
-        background: url('../images/front-page/hero.jpg') bottom left;
-        background-size: cover;
-        background-position: bottom left;
-      }
+			@include breakpoint(small) {
+				background: url('../images/front-page/hero.jpg') bottom left;
+				background-size: 125%;
+				background-position: 50% 80%;
+				background-repeat: no-repeat;
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				bottom: 0;
+			}
 
-    }
+			@include breakpoint(medium) {
+				background: url('../images/front-page/hero.jpg') bottom left;
+				background-size: 125%;
+				background-position: 50% 80%;
+				background-repeat: no-repeat;
+			}
 
-  }
+		}
+
+	}
 
 }
