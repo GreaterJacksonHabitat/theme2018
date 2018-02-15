@@ -116,6 +116,14 @@
   display: none;
 }
 
+.svg-container {
+	
+	svg {
+		fill: #fff;
+	}
+	
+}
+
 @include breakpoint(small only) {
 
   .title-bar {
