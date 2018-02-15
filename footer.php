@@ -13,9 +13,23 @@
 <div class="footer-container">
 	<footer class="footer">
 
-		<div class="copyright expanded row">
-			<div class="small-12 columns text-center">
-				<?php echo sprintf( __( 'Copyright &copy; %s %s', 'greater-jackson-habitat-theme' ), date( 'Y' ), get_bloginfo( 'name' ) ); ?>
+		<div class="expanded row">
+			<div class="small-12 medium-6 columns footer-menu">
+				<?php
+					wp_nav_menu( array(
+						'container'      => false,
+						'theme_location' => 'footer',
+						'fallback_cb'    => false,
+					));
+				?>
+			</div>
+			<div class="small-12 medium-6 columns copyright text-right">
+				<span class="svg-container">
+					<?php echo file_get_contents( THEME_DIR . '/dist/assets/images/equal-housing-opportunity.svg' ); ?>
+				</span>
+				<span class="text">
+					<?php echo sprintf( __( '&copy; %s %s', 'greater-jackson-habitat-theme' ), date( 'Y' ), get_bloginfo( 'name' ) ); ?>
+				</span>
 			</div>
 		</div>
 

@@ -1,107 +1,119 @@
 .footer-container {
-  margin: 0 auto;
-  margin-top: rem-calc(60);
-  background-color: $primary-color;
+	margin: 0 auto;
+	margin-top: rem-calc(60);
+	background-color: $primary-color;
 }
 
 .footer {
 
-  @include xy-grid-container;
-  @include xy-grid;
-  padding: rem-calc(30) 0;
+	@include xy-grid-container;
+	@include xy-grid;
+	padding: rem-calc(30) 0;
 
-  section {
-    @include xy-cell(auto);
-  }
+	section {
+		@include xy-cell(auto);
+	}
 
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
 
-  .footer-widgets {
+	.footer-widgets {
 
-    @include light-or-dark-text( $primary-color );
+		@include light-or-dark-text( $primary-color );
 
-    padding-bottom: 30px * 2;
+		padding-bottom: 30px * 2;
 
-    .widget-title {
-      @include light-or-dark-text( $primary-color );
-      margin-top: 0.9677em;
-      margin-bottom: 0.9677em;
-    }
+		.widget-title {
+			@include light-or-dark-text( $primary-color );
+			margin-top: 0.9677em;
+			margin-bottom: 0.9677em;
+		}
 
-    .gform_title, .gfield_label, label, .gfield_description, .ginput_counter, .gform_wrapper .gfield_required {
-      @include light-or-dark-text( $primary-color );
-    }
+		.gform_title, .gfield_label, label, .gfield_description, .ginput_counter, .gform_wrapper .gfield_required {
+			@include light-or-dark-text( $primary-color );
+		}
 
-    input[type="submit"] {
+		input[type="submit"] {
 
-      display: block !important;
-      width: 100% !important;
+			display: block !important;
+			width: 100% !important;
 
-      @include button( false, $secondary-color, scale-color( $secondary-color, $lightness: -15% ), 'auto', 'solid' );
+			@include button( false, $secondary-color, scale-color( $secondary-color, $lightness: -15% ), 'auto', 'solid' );
 
-      border-width: 0.25em;
-      border-color: $secondary-color;
+			border-width: 0.25em;
+			border-color: $secondary-color;
 
-      @include foundation-button-fix( $secondary-color );
+			@include foundation-button-fix( $secondary-color );
 
-      &:hover, &:focus {
+			&:hover, &:focus {
 
-        background: #fff;
-        color: $secondary-color;
-        border-width: 0.25em;
+				background: #fff;
+				color: $secondary-color;
+				border-width: 0.25em;
 
-      }
+			}
 
-    }
+		}
 
-    a {
+		a {
 
-      color: $white;
-      text-decoration: underline;
+			color: $white;
+			text-decoration: underline;
 
-      &:hover {
-        color: scale-color( $secondary-color, $lightness: 15% );
-        text-decoration: none;
-      }
+			&:hover {
+				color: scale-color( $secondary-color, $lightness: 15% );
+				text-decoration: none;
+			}
 
-    }
+		}
 
-    &, a {
-      font-weight: bold;
-    }
+		&, a {
+			font-weight: bold;
+		}
 
-  }
+	}
 
-  .widget_nav_menu {
+	.footer-menu {
 
-    .menu {
+		.menu {
 
-      list-style: none;
-      margin-bottom: 0;
+			list-style: none;
+			margin-bottom: 0;
 
-      li {
+			a {
 
-        width: 100%;
-        margin-bottom: 0.5em;
+				color: $white;
 
-        &:last-of-type {
-          margin-bottom: 0;   
-        }
+				&:hover {
+					color: scale-color( $secondary-color, $lightness: 15% );
+				}
 
-      }
+			}
 
-    }
+		}
 
-  }
+	}
 
-  .copyright {
+	.copyright {
 
-    @include light-or-dark-text( $primary-color );
+		@include light-or-dark-text( $primary-color );
+		text-transform: uppercase;
 
-  }
+		.svg-container {
+			svg {
+				fill: #000;
+			}
+		}
+
+		.text {
+			padding: 0.7rem 1rem;
+			position: relative;
+			top: -0.6rem;
+		}
+
+	}
 
 }

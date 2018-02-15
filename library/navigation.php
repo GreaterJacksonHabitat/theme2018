@@ -9,6 +9,7 @@
 
 register_nav_menus( array(
 	'primary'  => esc_html__( 'Primary', 'greater-jackson-habitat-theme' ),
+	'footer'  => esc_html__( 'Footer', 'greater-jackson-habitat-theme' ),
 ));
 
 
