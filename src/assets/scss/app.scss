@@ -58,6 +58,12 @@
   Add your scss files below to structure your project styles
 */
 
+$dark-color: #333;
+$light-color: #fff;
+
+@import "functions";
+@import "mixins";
+
 // Global
 @import "global/_accessibility";
 @import "global/colors";
