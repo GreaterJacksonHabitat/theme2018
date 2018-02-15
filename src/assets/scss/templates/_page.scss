@@ -5,8 +5,8 @@
 		position: relative;
 
 		margin: 0 0 rem-calc(32);
+		padding: rem-calc(10%) 0 0 0;
 		height: auto;
-		padding: rem-calc(175%) 0 rem-calc(25%) 0;
 
 		@include breakpoint(medium) {
 			padding: rem-calc(100%) 0 rem-calc(200%) 0;
@@ -24,6 +24,10 @@
 
 			& > * {
 				position: relative;
+			}
+			
+			@include breakpoint(small) {
+				margin-top: 0;
 			}
 
 		}
@@ -43,7 +47,7 @@
 
 			@include breakpoint(small) {
 				background: url('../images/interior-pages/interior-hero.png') bottom center;
-				background-size: 100%;
+				background-size: cover;
 				background-position: bottom center;
 				background-repeat: no-repeat;
 				position: absolute;
