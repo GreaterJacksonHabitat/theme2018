@@ -10,17 +10,31 @@
  * @since FoundationPress 1.0.0
  */
 
- get_header(); ?>
+get_header(); ?>
 
- <?php get_template_part( 'template-parts/featured-image' ); ?>
+<?php get_template_part( 'template-parts/interior', 'hero' ); ?>
 
- <div class="main-wrap">
-	 <main class="main-content">
-		 <?php while ( have_posts() ) : the_post(); ?>
-		 	<?php get_template_part( 'template-parts/content', 'page' ); ?>
-			<?php comments_template(); ?>
-		 <?php endwhile;?>
-	 </main>
- <?php get_sidebar(); ?>
+<div class="main-wrap">
+	 <?php do_action( 'foundationpress_before_content' ); ?>
+	 <?php while ( have_posts() ) : the_post(); ?>
+
+		<div <?php post_class( array( 'expanded', 'row' ) ) ?> id="post-<?php the_ID(); ?>" data-equalizer data-equalize-on="small" data-equalize-on-stack="true">
+			<div class="small-12 columns content" data-equalizer-watch>
+				<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
+				<div class="entry-content">
+					<?php the_content(); ?>
+				</div>
+			</div>
+			
+	 	</div>
+
+</div>
+<?php endwhile;?>
+<?php do_action( 'foundationpress_after_content' ); ?>
  </div>
- <?php get_footer();
+
+<?php 
+
+get_template_part( 'template-parts/interior', 'footer' );
+
+get_footer();
