@@ -10,11 +10,17 @@
 ?>
 
 </div><!-- Close container -->
-	<div class="footer-container">
-		<footer class="footer">
-			<?php dynamic_sidebar( 'footer-widgets' ); ?>
-		</footer>
-	</div>
+<div class="footer-container">
+	<footer class="footer">
+
+		<div class="copyright expanded row">
+			<div class="small-12 columns text-center">
+				<?php echo sprintf( __( 'Copyright &copy; %s %s', 'greater-jackson-habitat-theme' ), date( 'Y' ), get_bloginfo( 'name' ) ); ?>
+			</div>
+		</div>
+
+	</footer>
+</div>
 
 </div><!-- Close off-canvas content -->
 

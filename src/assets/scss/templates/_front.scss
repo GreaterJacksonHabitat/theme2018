@@ -65,6 +65,7 @@
 				left: 0;
 				bottom: 0;
 				//background-color: rgba( 240, 240, 240, 0.86 );
+				@include create-gradient( 'vertical', $primary-color, transparent );
 			}
 
 			@include breakpoint(small) {

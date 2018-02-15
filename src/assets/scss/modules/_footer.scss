@@ -1,10 +1,11 @@
 .footer-container {
   margin: 0 auto;
-  border-top: 1px solid $medium-gray;
   margin-top: rem-calc(60);
+  background-color: $primary-color;
 }
 
 .footer {
+
   @include xy-grid-container;
   @include xy-grid;
   padding: rem-calc(30) 0;
@@ -18,4 +19,89 @@
     margin: 0;
     padding: 0;
   }
+
+  .footer-widgets {
+
+    @include light-or-dark-text( $primary-color );
+
+    padding-bottom: 30px * 2;
+
+    .widget-title {
+      @include light-or-dark-text( $primary-color );
+      margin-top: 0.9677em;
+      margin-bottom: 0.9677em;
+    }
+
+    .gform_title, .gfield_label, label, .gfield_description, .ginput_counter, .gform_wrapper .gfield_required {
+      @include light-or-dark-text( $primary-color );
+    }
+
+    input[type="submit"] {
+
+      display: block !important;
+      width: 100% !important;
+
+      @include button( false, $secondary-color, scale-color( $secondary-color, $lightness: -15% ), 'auto', 'solid' );
+
+      border-width: 0.25em;
+      border-color: $secondary-color;
+
+      @include foundation-button-fix( $secondary-color );
+
+      &:hover, &:focus {
+
+        background: #fff;
+        color: $secondary-color;
+        border-width: 0.25em;
+
+      }
+
+    }
+
+    a {
+
+      color: $white;
+      text-decoration: underline;
+
+      &:hover {
+        color: scale-color( $secondary-color, $lightness: 15% );
+        text-decoration: none;
+      }
+
+    }
+
+    &, a {
+      font-weight: bold;
+    }
+
+  }
+
+  .widget_nav_menu {
+
+    .menu {
+
+      list-style: none;
+      margin-bottom: 0;
+
+      li {
+
+        width: 100%;
+        margin-bottom: 0.5em;
+
+        &:last-of-type {
+          margin-bottom: 0;   
+        }
+
+      }
+
+    }
+
+  }
+
+  .copyright {
+
+    @include light-or-dark-text( $primary-color );
+
+  }
+
 }
