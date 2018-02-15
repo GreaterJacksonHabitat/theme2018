@@ -32,12 +32,6 @@ while ( have_posts() ) : the_post(); ?>
 
 	</header>
 
-	 <div class="main-wrap row case-studies-header">
-		 <div class="small-12 columns text-center">
-			<?php //echo apply_filters( 'the_content', rbm_theme_get_field( 'case_studies_header' ) ); ?>
-		 </div>
-	 </div>
-
 <?php endwhile;
 
 get_footer();
