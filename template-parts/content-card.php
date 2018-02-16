@@ -17,8 +17,8 @@
 
 		<?php the_excerpt(); ?>
 
-		<a href="<?php the_permalink(); ?>" class="secondary button" title="<?php _e( 'Read More', 'greater-jackson-habitat-theme' ); ?>">
-			<?php _e( 'Read More', 'greater-jackson-habitat-theme' ); ?>
+		<a href="<?php the_permalink(); ?>" class="secondary button" title="<?php _e( 'Learn More', 'greater-jackson-habitat-theme' ); ?>">
+			<?php _e( 'Learn More', 'greater-jackson-habitat-theme' ); ?>
 		</a>
 		
 	</div>
