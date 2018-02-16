@@ -11,7 +11,7 @@
 	
 	<div class="small-12 medium-6 columns extra-meta">
 		
-		<?php echo apply_filters( 'the_content', greater_jackson_habitat_get_field( 'gjh_extra' ) ); ?>
+		<?php echo apply_filters( 'the_content', ( $extra = greater_jackson_habitat_get_field( 'gjh_extra' ) ) ? $extra : __( 'Add to this by editing the Page', 'greater-jackson-habitat-theme' ) ); ?>
 		
 	</div>
 	<div class="small-12 medium-6 columns events">

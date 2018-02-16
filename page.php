@@ -27,11 +27,10 @@ get_header(); ?>
 			</div>
 			
 	 	</div>
-
+	<?php endwhile;?>
 </div>
-<?php endwhile;?>
+
 <?php do_action( 'foundationpress_after_content' ); ?>
- </div>
 
 <?php 
 
