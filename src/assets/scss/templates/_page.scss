@@ -92,6 +92,42 @@
 			
 		}
 		
+		.events {
+			background-color: #f2f2f2;
+		}
+		
+	}
+	
+	.sponsors-section {
+		
+		.text {
+			background-color: #f2f2f2;
+		}
+		
+		.text, .sponsors-loop {
+			
+			padding: 1rem;
+			
+			@include breakpoint(medium) {
+				padding: 2rem 7rem;
+			}
+			
+		}
+	
+		.sponsors-loop {
+
+			.sponsors {
+
+				img {
+					position: relative;
+					top: 50%;
+					transform: translateY(-50%);
+				}
+
+			}
+
+		}
+		
 	}
 
 }
