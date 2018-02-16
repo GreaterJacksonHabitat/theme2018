@@ -12,10 +12,11 @@
 
 get_header(); ?>
 
-<?php get_template_part( 'template-parts/interior', 'hero' ); ?>
+<?php get_template_part( 'template-parts/interior', 'hero' );
+
+do_action( 'foundationpress_before_content' ); ?>
 
 <div class="main-wrap">
-	 <?php do_action( 'foundationpress_before_content' ); ?>
 	 <?php while ( have_posts() ) : the_post(); ?>
 
 		<div <?php post_class( array( 'expanded', 'row' ) ) ?> id="post-<?php the_ID(); ?>" data-equalizer data-equalize-on="small" data-equalize-on-stack="true">
