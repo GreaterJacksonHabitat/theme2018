@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Programs
+Template Name: Projects
 */
 get_header();
 
@@ -25,44 +25,32 @@ do_action( 'foundationpress_before_content' ); ?>
 
 <?php do_action( 'foundationpress_after_content' ); ?>
 
-<div class="row programs-loop">
+<div class="row projects-loop">
 
 	<?php
 
 	global $post;
-	$first = true;
 
-	$programs = new WP_Query( array(
-		'post_type' => 'programs',
+	$projects = new WP_Query( array(
+		'post_type' => 'projects',
 		'posts_per_page' => -1,
 	) );
 
-	if ( $programs->have_posts() ) : 
+	if ( $projects->have_posts() ) : 
 
-		while ( $programs->have_posts() ) : $programs->the_post(); ?>
+		while ( $projects->have_posts() ) : $projects->the_post(); ?>
 	
-			<?php
-				$post_class = array(
-					'small-12',
-					'columns',
-				);
-	
-				if ( ! $first ) {
-					$post_class[] = 'medium-6';
-				}
-			?>
-	
-			<div <?php post_class( $post_class ); ?>>
+			<div <?php post_class( array(
+				'small-12',
+				'medium-6',
+				'columns',
+			) ); ?>>
 
 				<?php include locate_template( 'template-parts/content-card.php', false, false ); ?>
 				
 			</div>
 
-		<?php 
-	
-			$first = false;
-	
-		endwhile;
+		<?php endwhile;
 
 		wp_reset_postdata();
 
