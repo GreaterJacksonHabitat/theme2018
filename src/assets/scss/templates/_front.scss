@@ -41,9 +41,15 @@
 			
 			color: #fff;
 			
-			@extend h1;
+			p {
+				@extend h1;
+				color: #fff;
+				font-weight: 700;
+			}
 			
-			font-weight: 700;
+			* {
+				font-weight: 700;
+			}
 			
 			@include breakpoint(medium) {
 				margin-top: rem-calc(-300%);
