@@ -73,8 +73,8 @@
 			}
 
 			// iPad Landscape
-			// We target much more specific points here as otherwise we mess up other landscape screens
-			@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+			// This also includes smartphones for this specific use case
+			@media only screen and (max-width: 1024px) and (orientation: landscape) {
 
 				background-size: cover;
 
