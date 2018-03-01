@@ -63,6 +63,22 @@
 				background-position: bottom center;
 				background-repeat: no-repeat;
 			}
+			
+			// iPad Portrait
+			// We only want to ensure we capture screen widths ABOVE small and only up to 1024px (regardless of where medium normally ends)
+			@media only screen and (min-width: #{map-get( $breakpoints, 'medium' )} ) and (max-width: 1024px) and (orientation: portrait) {
+
+				background-size: cover;
+
+			}
+
+			// iPad Landscape
+			// We target much more specific points here as otherwise we mess up other landscape screens
+			@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+				background-size: cover;
+
+			}
 
 		}
 
