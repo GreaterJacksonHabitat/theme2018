@@ -7,20 +7,24 @@
 
 ?>
 
-<div class="expanded row extra-meta-section" data-equalizer data-equalize-on="small" data-equalize-on-stack="true">
-	
-	<div class="small-12 medium-6 columns extra-meta" data-equalizer-watch>
-		
-		<?php echo apply_filters( 'the_content', ( $extra = greater_jackson_habitat_get_field( 'gjh_extra' ) ) ? $extra : __( 'Add to this by editing the Page', 'greater-jackson-habitat-theme' ) ); ?>
-		
+<?php if ( get_post_type() !== 'tribe_events' ) : ?>
+
+	<div class="expanded row extra-meta-section" data-equalizer data-equalize-on="small" data-equalize-on-stack="true">
+
+		<div class="small-12 medium-6 columns extra-meta" data-equalizer-watch>
+
+			<?php echo apply_filters( 'the_content', ( $extra = greater_jackson_habitat_get_field( 'gjh_extra' ) ) ? $extra : __( 'Add to this by editing the Page', 'greater-jackson-habitat-theme' ) ); ?>
+
+		</div>
+		<div class="small-12 medium-6 columns events" data-equalizer-watch>
+
+			Events stuff will go here later
+
+		</div>
+
 	</div>
-	<div class="small-12 medium-6 columns events" data-equalizer-watch>
-		
-		Events stuff will go here later
-		
-	</div>
-	
-</div>
+
+<?php endif; ?>
 
 <div class="expanded row sponsors-section" data-equalizer data-equalize-on="small" data-equalize-on-stack="true">
 	
