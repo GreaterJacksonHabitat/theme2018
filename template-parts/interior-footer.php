@@ -17,8 +17,49 @@
 
 		</div>
 		<div class="small-12 medium-6 columns events" data-equalizer-watch>
+			
+			<h4><?php _e( 'Latest Event', 'greater-jackson-habitat-theme' ); ?></h4>
 
-			Events stuff will go here later
+			<?php 
+			
+				global $post;
+			
+				$past_event = new WP_Query( array(
+					'post_type' => 'tribe_events',
+					'posts_per_page' => 1,
+					'eventDisplay' => 'past',
+					'order' => 'DESC',
+				) );
+			
+				if ( $past_event->have_posts() ) : 
+			
+					while ( $past_event->have_posts() ) : $past_event->the_post(); ?>
+			
+						<strong>
+							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+								<?php the_title(); ?>
+							</a>
+						</strong>
+			
+						<p>
+							<strong>
+								<?php echo tribe_get_start_date( get_the_ID(), false, tribe_get_date_format( true ) ); ?>
+							</strong>
+						</p>
+			
+						<?php the_excerpt(); ?>
+			
+					<?php endwhile; 
+			
+					wp_reset_postdata();
+			
+				else : ?>
+			
+					<strong><?php _e( 'There are no Past Events yet', 'greater-jackson-habitat-theme' ); ?></strong>
+			
+				<?php endif;
+			
+			?>
 
 		</div>
 
