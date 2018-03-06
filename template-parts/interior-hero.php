@@ -9,10 +9,14 @@
 
 <header class="interior-hero" role="banner">
 	<div class="main-wrap">
+		
+		<?php if ( $interior_hero_id = get_theme_mod( 'gjh_logo_image', false ) ) : ?>
 
-		<div class="image">
-			<div class="color-overlay"></div>
-		</div>
+			<div class="image" style="background-image: url('<?php echo wp_get_attachment_image_src( $interior_hero_id, 'full', false )[0];?>')">
+				<div class="color-overlay"></div>
+			</div>
+		
+		<?php endif; ?>
 
 		<div class="row tagline text-center">
 			<div class="small-8 small-push-2 columns">
