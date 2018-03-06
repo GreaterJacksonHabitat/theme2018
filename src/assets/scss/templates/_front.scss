@@ -75,7 +75,6 @@
 			}
 
 			@include breakpoint(small) {
-				background: url('../images/front-page/hero.jpg') bottom left;
 				background-size: 125%;
 				background-position: 50% 80%;
 				background-repeat: no-repeat;
@@ -87,7 +86,6 @@
 			}
 
 			@include breakpoint(medium) {
-				background: url('../images/front-page/hero.jpg') bottom left;
 				background-size: 125%;
 				background-position: 50% 80%;
 				background-repeat: no-repeat;

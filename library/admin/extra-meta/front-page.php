@@ -44,7 +44,7 @@ function greater_jackson_habitat_remove_home_supports() {
     
     if ( greater_jackson_habitat_is_editing_home() ) {
 
-        remove_post_type_support( 'page', 'thumbnail' );
+        //remove_post_type_support( 'page', 'thumbnail' );
         
     }
     
