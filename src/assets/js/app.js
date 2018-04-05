@@ -11,3 +11,8 @@ import Foundation from 'foundation-sites';
 $(document).foundation();
 
 import './lib/foundation-off-canvas';
+
+// Couldn't get importing it the normal way to work, so let's just use the dist file
+import '../../../node_modules/masonry-layout/dist/masonry.pkgd.js';
+
+import './lib/masonry.js';

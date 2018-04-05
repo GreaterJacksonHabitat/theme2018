@@ -25,7 +25,7 @@ do_action( 'foundationpress_before_content' ); ?>
 
 <?php do_action( 'foundationpress_after_content' ); ?>
 
-<div class="row projects-loop">
+<div class="row masonry projects-loop">
 
 	<?php
 

@@ -1,0 +1,13 @@
+.masonry {
+	
+	.card {
+		
+		@include breakpoint(medium) {
+			
+			margin-bottom: 2rem;
+			
+		}
+		
+	}
+	
+}
