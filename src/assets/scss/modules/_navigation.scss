@@ -61,6 +61,10 @@
   
 }
 
+.is-stuck.sticky-top-bar {
+	@include background-opacity( $primary-color, 0.6 );
+}
+
 .top-bar {
 
   .top-bar-title a {
