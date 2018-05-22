@@ -1,0 +1,17 @@
+.page-template-projects {
+	
+	.interior-hero {
+		margin-bottom: 0;
+	}
+	
+	@include breakpoint(medium) {
+		
+		.main-wrap {
+			
+			margin-top: 0;
+			
+		}
+		
+	}
+	
+}

@@ -7,26 +7,10 @@ get_header();
 get_template_part( 'template-parts/interior', 'hero' );
 
 do_action( 'foundationpress_before_content' ); ?>
-<?php while ( have_posts() ) : the_post(); ?>
-<section class="intro" role="main">
-	<div class="fp-intro">
+<?php while ( have_posts() ) : the_post(); $even = false; ?>
 
-		<div <?php post_class( array( 'expanded', 'row' ) ) ?> id="post-<?php the_ID(); ?>" data-equalizer data-equalize-on="small" data-equalize-on-stack="true">
-			<div class="small-12 medium-7 columns content" data-equalizer-watch>
-				<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
-				<div class="entry-content">
-					<?php the_content(); ?>
-				</div>
-			</div>
-			<div class="small-12 medium-5 columns image-container" data-equalizer-watch>
-				<div class="image" style="background-image: url('<?php echo wp_get_attachment_image_url( get_post_thumbnail_id( get_the_ID() ), 'full' ); ?>')">
-				</div>
-			</div>
-		</div>
+	<?php include locate_template( 'template-parts/loop/post-cta.php', false, false ); ?>
 
-	</div>
-
-</section>
 <?php endwhile;?>
 <?php do_action( 'foundationpress_after_content' ); ?>
 

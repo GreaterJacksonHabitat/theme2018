@@ -1,0 +1,53 @@
+.post-cta {
+	
+	@include breakpoint( small only ) {
+
+		margin: 0 0 rem-calc(32); // Same as .interior-hero
+		
+	}
+
+	.content {
+
+		padding: 1rem;
+
+		@include breakpoint(medium) {
+			padding: 7rem;
+		}
+
+	}
+
+	.image-container {
+
+		position: relative;
+		
+		@include breakpoint( small only ) {
+			min-height: 250px;
+		}
+
+		.image {
+
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-size: cover;
+			background-position: bottom center;
+
+		}
+
+	}
+	
+	& > .even {
+		
+		background-color: $primary-color;
+		
+		h1, h2, h3, h4, h5, h6 {
+			@include light-or-dark-text( $primary-color );
+		}
+
+		@include light-or-dark-text( $primary-color );
+		
+	}
+
+}

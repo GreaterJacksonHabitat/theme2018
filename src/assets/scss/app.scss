@@ -85,10 +85,13 @@ $light-color: #fff;
 @import "components/grid";
 @import "components/accordion";
 @import "components/masonry";
+@import "components/post-cta";
 
 // Templates
 @import "templates/front";
 @import "templates/kitchen-sink";
 @import "templates/page";
 @import "templates/volunteers";
+@import "templates/programs";
+@import "templates/projects";
 @import "templates/archive-tribe_events";

@@ -25,11 +25,13 @@ do_action( 'foundationpress_before_content' ); ?>
 
 <?php do_action( 'foundationpress_after_content' ); ?>
 
-<div class="row masonry projects-loop">
+<div class="expanded row projects-loop">
 
 	<?php
 
 	global $post;
+	$even = false;
+	$count = 1; // Not zero indexed to make modulus make more sense
 
 	$projects = new WP_Query( array(
 		'post_type' => 'projects',
@@ -38,19 +40,20 @@ do_action( 'foundationpress_before_content' ); ?>
 
 	if ( $projects->have_posts() ) : 
 
-		while ( $projects->have_posts() ) : $projects->the_post(); ?>
+		while ( $projects->have_posts() ) : $projects->the_post();
 	
-			<div <?php post_class( array(
-				'small-12',
-				'medium-6',
-				'columns',
-			) ); ?>>
+			if ( $count % 2 == 0 ) {
+				$even = true;
+			}
+			else {
+				$even = false;
+			}
+	
+			include locate_template( 'template-parts/loop/post-cta.php', false, false );
+	
+			$count++;
 
-				<?php include locate_template( 'template-parts/content-card.php', false, false ); ?>
-				
-			</div>
-
-		<?php endwhile;
+		endwhile;
 
 		wp_reset_postdata();
 

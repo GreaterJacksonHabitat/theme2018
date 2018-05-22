@@ -25,12 +25,13 @@ do_action( 'foundationpress_before_content' ); ?>
 
 <?php do_action( 'foundationpress_after_content' ); ?>
 
-<div class="row programs-loop">
+<div class="expanded row programs-loop">
 
 	<?php
 
 	global $post;
-	$first = true;
+	$even = false;
+	$count = 1; // Not zero indexed to make modulus make more sense
 
 	$programs = new WP_Query( array(
 		'post_type' => 'programs',
@@ -39,28 +40,18 @@ do_action( 'foundationpress_before_content' ); ?>
 
 	if ( $programs->have_posts() ) : 
 
-		while ( $programs->have_posts() ) : $programs->the_post(); ?>
+		while ( $programs->have_posts() ) : $programs->the_post(); 
 	
-			<?php
-				$post_class = array(
-					'small-12',
-					'columns',
-				);
+			if ( $count % 2 == 0 ) {
+				$even = true;
+			}
+			else {
+				$even = false;
+			}
 	
-				if ( ! $first ) {
-					$post_class[] = 'medium-6';
-				}
-			?>
+			include locate_template( 'template-parts/loop/post-cta.php', false, false );
 	
-			<div <?php post_class( $post_class ); ?>>
-
-				<?php include locate_template( 'template-parts/content-card.php', false, false ); ?>
-				
-			</div>
-
-		<?php 
-	
-			$first = false;
+			$count++;
 	
 		endwhile;
 
