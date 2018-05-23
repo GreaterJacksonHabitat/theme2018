@@ -52,7 +52,7 @@ function greater_jackson_habitat_init_field_group( $group ) {
  */
 function greater_jackson_habitat_get_field( $name, $post_ID = false, $default = '', $args = array() ) {
     $value = greater_jackson_habitat_field_helpers()->fields->get_meta_field( $name, $post_ID, $args );
-    return $value !== false ? $value : $default;
+    return ( $value ) ? $value : $default;
 }
 
 /**

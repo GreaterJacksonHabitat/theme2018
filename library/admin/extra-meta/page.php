@@ -28,6 +28,15 @@ function greater_jackson_habitat_add_page_metaboxes() {
 	if ( greater_jackson_habitat_is_editing_home() ) return;
 	
 	add_meta_box(
+		'gjh-subtitle',
+		__( 'Subtitle', 'greater-jackson-habitat-theme' ),
+		'greater_jackson_habitat_subtitle_metabox_content',
+		'page',
+		'normal',
+		'high'
+	);
+	
+	add_meta_box(
 		'gjh-extra-meta',
 		__( 'Extra Section', 'greater-jackson-habitat-theme' ),
 		'greater_jackson_habitat_extra_metabox_content',
@@ -36,7 +45,9 @@ function greater_jackson_habitat_add_page_metaboxes() {
 		'low'
 	);
     
-}/**
+}
+
+/**
  * Adds Become a Volunteer Metabox
  * 
  * @since		1.0.0
@@ -51,5 +62,25 @@ function greater_jackson_habitat_extra_metabox_content() {
 	) );
 	
 	greater_jackson_habitat_init_field_group( 'gjh_extra' );
+	
+}
+
+/**
+ * Adds Become a Subtitle Metabox
+ * 
+ * @since		1.0.0
+ * @return		void
+ */
+function greater_jackson_habitat_subtitle_metabox_content() {
+	
+	greater_jackson_habitat_do_field_text( array(
+		'name' => 'gjh_subtitle',
+		'group' => 'gjh_subtitle',
+		'input_atts' => array(
+			'style' => 'width: 100%',
+		),
+	) );
+	
+	greater_jackson_habitat_init_field_group( 'gjh_subtitle' );
 	
 }

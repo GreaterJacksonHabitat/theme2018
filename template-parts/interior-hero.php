@@ -50,7 +50,7 @@
 					
 				</h1>
 				
-				<?php echo apply_filters( 'the_content', get_bloginfo( 'description' ) ); ?>
+				<?php echo apply_filters( 'the_content', greater_jackson_habitat_get_field( 'gjh_subtitle', get_the_ID(), get_bloginfo( 'description' ) ) ); ?>
 				
 			</div>
 		</div>
