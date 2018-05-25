@@ -7,16 +7,19 @@
 
 ?>
 
-<header class="interior-hero" role="banner">
-	<div class="main-wrap">
+<?php if ( has_post_thumbnail() ) : ?>
 		
-		<?php if ( $interior_hero_id = get_theme_mod( 'gjh_logo_image', false ) ) : ?>
+	<header class="featured-hero" role="banner" data-interchange="[<?php echo the_post_thumbnail_url('featured-small'); ?>, small], [<?php echo the_post_thumbnail_url('featured-medium'); ?>, medium], [<?php echo the_post_thumbnail_url('featured-large'); ?>, large], [<?php echo the_post_thumbnail_url('featured-xlarge'); ?>, xlarge]">
 
-			<div class="image" style="background-image: url('<?php echo wp_get_attachment_image_src( $interior_hero_id, 'full', false )[0];?>')">
-				<div class="color-overlay"></div>
-			</div>
-		
-		<?php endif; ?>
+<?php else : 
+
+	$interior_hero_id = get_theme_mod( 'gjh_logo_image', false ); ?>
+
+	<header class="featured-hero" role="banner" data-interchange="[<?php echo wp_get_attachment_image_src( $interior_hero_id, 'featured-small', false )[0] ?>, small], [<?php echo wp_get_attachment_image_src( $interior_hero_id, 'featured-medium', false )[0]; ?>, medium], [<?php echo wp_get_attachment_image_src( $interior_hero_id, 'featured-large', false )[0]; ?>, large], [<?php echo wp_get_attachment_image_src( $interior_hero_id, 'featured-xlarge', false )[0]; ?>, xlarge]">
+
+<?php endif; ?>
+				
+	<div class="main-wrap">
 
 		<div class="row tagline text-center">
 			<div class="small-8 small-push-2 columns">

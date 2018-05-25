@@ -1,14 +1,40 @@
 .featured-hero {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: rem-calc(100);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: auto;
 
-  @include breakpoint(medium) {
-    height: rem-calc(200);
-  }
+	@include breakpoint(medium) {
+		height: rem-calc(200);
+	}
 
-  @include breakpoint(xlarge) {
-    height: rem-calc(400);
-  }
+	@include breakpoint(xlarge) {
+		height: rem-calc(400);
+	}
+
+	.main-wrap {
+
+		@include xy-grid;
+
+		*, .page-title {
+			color: #fff;
+			font-weight: 700;
+		}
+
+		& > * {
+			position: relative;
+		}
+
+		@include breakpoint(small) {
+			margin-top: 0;
+		}
+		
+		padding-top: 0;
+		
+		@include breakpoint(medium) {
+			padding-top: 8rem;
+		}
+
+	}
+
 }

@@ -22,7 +22,7 @@ add_action( 'customize_register', function( $wp_customize ) {
         ) 
     );
     $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'gjh_logo_image', array(
-        'label'        => __( 'Interior Page Hero', 'greater-jackson-habitat-theme' ),
+        'label'        => __( 'Interior Page Hero (Recommended 18:5 ratio, at least 1440x400)', 'greater-jackson-habitat-theme' ),
         'section'    => 'greater_jackson_habitat_customizer_section',
         'settings'   => 'gjh_logo_image',
         'mime_type'  => 'image',

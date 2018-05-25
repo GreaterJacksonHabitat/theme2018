@@ -16,6 +16,8 @@ add_action( 'init', 'greater_jackson_habitat_remove_home_supports' );
 add_action( 'do_meta_boxes', 'greater_jackson_habitat_remove_home_metaboxes' );
 add_action( 'add_meta_boxes', 'greater_jackson_habitat_add_home_metaboxes' );
 
+add_filter( 'post_type_labels_page', 'greater_jackson_habitat_home_featured_image_labels' );
+
 /**
  * Determine if we're editing the Home Page
  * 
@@ -48,6 +50,29 @@ function greater_jackson_habitat_remove_home_supports() {
         
     }
     
+}
+
+/**
+ * Change Featured Image Labels for Home
+ * 
+ * @param		array $labels Featured Image Labels
+ *                                      
+ * @since		1.0.0
+ * @return		array Featured Image Labels
+ */
+function greater_jackson_habitat_home_featured_image_labels( $labels ) {
+	
+	if ( greater_jackson_habitat_is_editing_home() ) {
+
+		$labels->featured_image = __( 'Background Image (Recommended 7:5 ratio, at least 1400x1000)', 'greater-jackson-habitat-theme' );
+		$labels->set_featured_image = __( 'Set Background Image', 'greater-jackson-habitat-theme' );
+		$labels->remove_featured_image = __( 'Remove Background Image', 'greater-jackson-habitat-theme' );
+		$labels->use_featured_image = __( 'Use as Background Image', 'greater-jackson-habitat-theme' );
+		
+	}
+
+	return $labels;
+
 }
 
 /**

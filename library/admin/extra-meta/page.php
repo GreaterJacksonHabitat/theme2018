@@ -14,6 +14,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'add_meta_boxes', 'greater_jackson_habitat_add_page_metaboxes' );
 
+add_filter( 'post_type_labels_page', 'greater_jackson_habitat_page_featured_image_labels' );
+add_filter( 'post_type_labels_tribe_events', 'greater_jackson_habitat_page_featured_image_labels' );
+
+/**
+ * Change Featured Image Labels for other Pages
+ * 
+ * @param		array $labels Featured Image Labels
+ *                                      
+ * @since		1.0.0
+ * @return		array Featured Image Labels
+ */
+function greater_jackson_habitat_page_featured_image_labels( $labels ) {
+	
+	if ( ! greater_jackson_habitat_is_editing_home() ) {
+
+		$labels->featured_image = __( 'Hero Image (Recommended 18:5 ratio, at least 1440x400)', 'greater-jackson-habitat-theme' );
+		$labels->set_featured_image = __( 'Set Hero Image', 'greater-jackson-habitat-theme' );
+		$labels->remove_featured_image = __( 'Remove Hero Image', 'greater-jackson-habitat-theme' );
+		$labels->use_featured_image = __( 'Use as Hero Image', 'greater-jackson-habitat-theme' );
+		
+	}
+
+	return $labels;
+
+}
+
 /**
  * Create Metaboxes for Pages
  * 

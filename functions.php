@@ -107,6 +107,29 @@ require_once( 'library/admin/extra-meta/front-page.php' );
 require_once( 'library/admin/extra-meta/page.php' );
 require_once( 'library/admin/extra-meta/volunteers.php' );
 
+add_filter( 'post_type_labels_programs', 'greater_jackson_habitat_cpt_featured_image_labels' );
+add_filter( 'post_type_labels_projects', 'greater_jackson_habitat_cpt_featured_image_labels' );
+add_filter( 'post_type_labels_sponsors', 'greater_jackson_habitat_cpt_featured_image_labels' );
+
+/**
+ * Change Featured Image Labels for other our CPTs
+ * 
+ * @param		array $labels Featured Image Labels
+ *                                      
+ * @since		1.0.0
+ * @return		array Featured Image Labels
+ */
+function greater_jackson_habitat_cpt_featured_image_labels( $labels ) {
+
+	$labels->featured_image = __( 'Featured Image (Recommended 32:17 ratio, at least 640x340)', 'greater-jackson-habitat-theme' );
+	$labels->set_featured_image = __( 'Set Featured Image', 'greater-jackson-habitat-theme' );
+	$labels->remove_featured_image = __( 'Remove Featured Image', 'greater-jackson-habitat-theme' );
+	$labels->use_featured_image = __( 'Use as Featured Image', 'greater-jackson-habitat-theme' );
+
+	return $labels;
+
+}
+
 // Shortcodes
 require_once( 'library/shortcodes/gjh-button.php' );
 
