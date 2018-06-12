@@ -18,7 +18,6 @@ while ( have_posts() ) : the_post(); ?>
 			<?php if ( has_post_thumbnail() ) : ?>
 
 				<div class="image" style="background-image: url('<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full', false )[0]; ?>')">
-					<div class="color-overlay"></div>
 				</div>
 			
 			<?php endif; ?>

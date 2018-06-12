@@ -64,16 +64,6 @@
 		.image {
 			position: absolute;
 
-			.color-overlay {
-				position: absolute;
-				top: 0;
-				right: 0;
-				left: 0;
-				bottom: 0;
-				//background-color: rgba( 240, 240, 240, 0.86 );
-				@include create-gradient( 'vertical', $primary-color, transparent );
-			}
-
 			@include breakpoint(small) {
 				background-size: 125%;
 				background-position: 50% 80%;
