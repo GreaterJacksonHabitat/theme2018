@@ -29,7 +29,11 @@
 		<div class="small-12 medium-7 columns content<?php echo ( ! $even ) ? ' medium-pull-5' : ''; ?>" data-equalizer-watch>
 			<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
 			<div class="entry-content">
-				<?php the_content(); ?>
+				<h3 class="post-title"><?php the_title(); ?></h3>
+				<?php the_excerpt(); ?>
+				<a href="<?php the_permalink(); ?>" class="button secondary" title"<?php _e( 'Read More', '' ); ?>">
+					<?php _e( 'Read More', '' ); ?>
+				</a>
 			</div>
 		</div>
 		
