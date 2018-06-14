@@ -34,7 +34,7 @@
 			height: rem-calc(750);
 			margin: 0;
 		}
-
+		
 		.marketing {
 
 			@include xy-grid;
@@ -63,9 +63,9 @@
 
 		.image {
 			position: absolute;
+			background-size: cover;
 
 			@include breakpoint(small) {
-				background-size: 125%;
 				background-position: 50% 80%;
 				background-repeat: no-repeat;
 				position: absolute;
@@ -76,7 +76,6 @@
 			}
 
 			@include breakpoint(medium) {
-				background-size: 125%;
 				background-position: 50% 80%;
 				background-repeat: no-repeat;
 			}
