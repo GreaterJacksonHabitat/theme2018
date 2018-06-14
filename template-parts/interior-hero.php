@@ -19,10 +19,10 @@
 
 <?php endif; ?>
 				
-	<div class="main-wrap row">
+	<div class="main-wrap">
 
 		<div class="row tagline text-center">
-			<div class="small-8 small-push-2 columns">
+			<div class="small-8 small-push-2 medium-12 medium-push-0 columns">
 				<h1 class="page-title">
 					
 					<?php
