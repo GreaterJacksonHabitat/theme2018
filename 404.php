@@ -8,8 +8,8 @@
 
 get_header(); ?>
 
- <div class="main-wrap">
-	<main class="main-content">
+ <div class="main-wrap row">
+	<main class="main-content small-12 medium-8 columns">
 		<article>
 			<header>
 				<h1 class="entry-title"><?php _e( 'File Not Found', 'greater-jackson-habitat-theme' ); ?></h1>

@@ -15,8 +15,8 @@
 
 get_header(); ?>
 
-<div class="main-wrap">
-	<main class="main-content">
+<div class="main-wrap row">
+	<main class="main-content small-12 medium-8 columns">
 	<?php if ( have_posts() ) : ?>
 
 		<?php /* Start the Loop */ ?>

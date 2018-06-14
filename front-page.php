@@ -13,7 +13,7 @@ get_header();
 while ( have_posts() ) : the_post(); ?>
 
 	<header class="featured-hero front-hero" role="banner">
-		<div class="marketing main-wrap">
+		<div class="marketing main-wrap row">
 			
 			<?php if ( has_post_thumbnail() ) : ?>
 			

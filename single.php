@@ -10,14 +10,27 @@ get_header(); ?>
 
 <?php get_template_part( 'template-parts/featured-image' ); ?>
 
-<div class="main-wrap">
-	<main class="main-content">
+<?php $full_width_post_types = apply_filters( 'gjh_full_width_post_types', array(
+	'programs',
+	'projects',
+) ); ?>
+
+<div class="main-wrap row">
+	<main class="main-content small-12<?php echo ( ! in_array( get_post_type(), $full_width_post_types ) ? ' medium-8' : '' ); ?> columns">
 		<?php while ( have_posts() ) : the_post(); ?>
+		
 			<?php get_template_part( 'template-parts/content', '' ); ?>
-			<?php the_post_navigation(); ?>
-			<?php comments_template(); ?>
+		
+			<?php if ( ! in_array( get_post_type(), $full_width_post_types ) ) {
+				the_post_navigation(); 
+				comments_template();
+			} ?>
+		
 		<?php endwhile;?>
 	</main>
-<?php get_sidebar(); ?>
+	
+<?php if ( ! in_array( get_post_type(), $full_width_post_types ) ) {
+	get_sidebar(); 
+} ?>
 </div>
 <?php get_footer();

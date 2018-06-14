@@ -49,19 +49,6 @@
     }
   }
 
-  .main-content {
-
-    // Default template
-    @include breakpoint(small) {
-      @include xy-cell(12);
-    }
-
-    @include breakpoint(medium) {
-      @include xy-cell(8);
-    }
-
-  }
-
   .sidebar {
 
     @include breakpoint(small) {

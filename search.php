@@ -8,8 +8,8 @@
 
 get_header(); ?>
 
-<div class="main-wrap">
-	<main id="search-results" class="main-content">
+<div class="main-wrap row">
+	<main id="search-results" class="main-content small-12 medium-8 columns">
 
 	<header>
 	    <h1 class="entry-title"><?php _e( 'Search Results for', 'greater-jackson-habitat-theme' ); ?> "<?php echo get_search_query(); ?>"</h1>

@@ -19,7 +19,7 @@
 
 <?php endif; ?>
 				
-	<div class="main-wrap">
+	<div class="main-wrap row">
 
 		<div class="row tagline text-center">
 			<div class="small-8 small-push-2 columns">

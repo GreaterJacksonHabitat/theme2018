@@ -8,7 +8,7 @@ get_template_part( 'template-parts/interior', 'hero' );
 
 do_action( 'foundationpress_before_content' ); ?>
 
-<div class="main-wrap">
+<div class="main-wrap row">
 	 <?php while ( have_posts() ) : the_post(); ?>
 
 		<div <?php post_class( array( 'expanded', 'row' ) ) ?> id="post-<?php the_ID(); ?>">

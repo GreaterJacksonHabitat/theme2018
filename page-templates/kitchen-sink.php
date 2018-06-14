@@ -8,7 +8,7 @@ get_header(); ?>
 	<?php /* Start loop */ ?>
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<div class="main-wrap" role="main">
+		<div class="main-wrap row" role="main">
 			<header class="kitchen-sink-header">
 				<h1 class="entry-title"><?php the_title(); ?></h1><hr>
 				<p class="lead">This page includes every single Foundation element so that we can make sure things work together smoothly.</p><hr>
