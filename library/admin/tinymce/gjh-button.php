@@ -59,8 +59,8 @@ function gjh_button_tinymce_l10n( $l10n ) {
             'label' => _x( 'Color', 'Button Color Selection Label', 'greater-jackson-habitat-theme' ),
             'default' => 'secondary',
             'choices' => array(
-                'primary' => _x( 'Blue', 'Primary Theme Color', 'greater-jackson-habitat-theme' ),
-                'secondary' => _x( 'Green', 'Secondary Theme Color', 'greater-jackson-habitat-theme' ),
+                'primary' => _x( 'Habitat Blue', 'Primary Theme Color', 'greater-jackson-habitat-theme' ),
+                'secondary' => _x( 'Habitat Green', 'Secondary Theme Color', 'greater-jackson-habitat-theme' ),
             ),
         ),
         'size' => array(

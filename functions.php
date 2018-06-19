@@ -136,3 +136,4 @@ require_once( 'library/shortcodes/gjh-button.php' );
 // TinyMCE functionality
 require_once( 'library/admin/tinymce/localization.php' );
 require_once( 'library/admin/tinymce/gjh-button.php' );
+require_once( 'library/admin/tinymce/color-palette.php' );
