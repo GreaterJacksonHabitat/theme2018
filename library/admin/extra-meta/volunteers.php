@@ -25,6 +25,14 @@ function greater_jackson_habitat_add_volunteer_metaboxes() {
 	global $post;
 	
 	if ( get_post_meta( $post->ID, '_wp_page_template', true ) !== 'page-templates/volunteers.php' ) return;
+	
+	add_meta_box(
+		'volunteer-sections-meta',
+		__( 'Volunteer Sections', 'greater-jackson-habitat-theme' ),
+		'greater_jackson_habitat_volunteer_section_metabox_content',
+		'page',
+		'normal'
+	);
     
     add_meta_box(
 		'volunteer-faq-meta',
@@ -34,6 +42,46 @@ function greater_jackson_habitat_add_volunteer_metaboxes() {
 		'normal'
 	);
     
+}
+
+/**
+ * Adds Sections Metabox
+ * 
+ * @since		1.0.0
+ * @return		void
+ */
+function greater_jackson_habitat_volunteer_section_metabox_content() {
+	
+	greater_jackson_habitat_do_field_repeater( array(
+		'name' => 'volunteer_sections',
+		'group' => 'volunteer_sections',
+		'fields' => array(
+			'title' => array(
+				'type' => 'text',
+				'args' => array(
+					'label' => __( 'Section Title', 'greater-jackson-habitat-theme' ),
+					'input_class' => 'regular-text',
+				),
+			),
+			'image' => array(
+				'type' => 'media',
+				'args' => array(
+					'label' => __( 'Image', 'greater-jackson-habitat-theme' ),
+					'type' => 'image',
+				),
+			),
+			'content' => array(
+				'type' => 'textarea',
+				'args' => array(
+					'label' => __( 'Content', 'greater-jackson-habitat-theme' ),
+					'wysiwyg' => true,
+				),
+			),
+		),
+	) );
+	
+	greater_jackson_habitat_init_field_group( 'volunteer_sections' );
+	
 }
 
 /**

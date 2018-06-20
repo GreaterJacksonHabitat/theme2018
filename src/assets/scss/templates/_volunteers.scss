@@ -1,7 +1,66 @@
+@mixin white-card() {
+	
+	background: #fff;
+	color: $body-font-color;
+	
+	h1, h2, h3, h4, h5, h6 {
+		color: $primary-color;
+	}
+	
+	a:not(.button) {
+		
+		color: $anchor-color;
+		
+		&:hover {
+			color: $anchor-color-hover;
+		}
+		
+	}
+	
+}
+
 .page-template-volunteers {
 	
 	.interior-hero {
 		margin-bottom: 0;
+	}
+	
+	.volunteer-sections {
+		
+		.card {
+			
+			border: 0;
+			margin-bottom: 0;
+			padding: 1rem;
+			
+			@include breakpoint( medium ) {
+				padding: 7rem;
+			}
+			
+			.card-content {
+				padding-left: 0;
+				padding-right: 0;
+			}
+			
+			@include breakpoint( small only ) {
+				
+				&:nth-of-type(even) {
+					@include white-card;
+				}
+				
+			}
+			
+			// Back-and-forth "checker" effect
+			@include breakpoint( medium ) {
+				
+				&:nth-of-type( 2 ), &:nth-of-type( 3n ), &:nth-of-type( 7n ) {
+					@include white-card;
+				}
+				
+			}
+			
+		}
+		
 	}
 	
 }
