@@ -105,7 +105,21 @@
 							'text-center',
 						) ); ?> data-equalizer-watch>
 							
+							<?php $website = get_post_meta( get_the_ID(), 'rbm_cpts_gjh_sponsor_website', true ); ?>
+							
+							<?php if ( $website ) : ?>
+							
+								<a href="<?php echo $website; ?>" target="_blank" title="<?php the_title(); ?>">
+									
+							<?php endif; ?>
+							
 							<?php the_post_thumbnail( 'medium' ); ?>
+									
+							<?php if ( $website ) : ?>
+							
+								</a>
+									
+							<?php endif; ?>
 			
 						</div>
 			
