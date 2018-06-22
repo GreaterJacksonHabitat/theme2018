@@ -31,15 +31,19 @@
 			
 			border: 0;
 			margin-bottom: 0;
-			padding: 1rem;
-			
-			@include breakpoint( medium ) {
-				padding: 7rem;
-			}
+			padding: 0;
 			
 			.card-content {
-				padding-left: 0;
-				padding-right: 0;
+				padding-left: 1rem;
+				padding-right: 1rem;
+				padding-bottom: 1rem;
+				
+				@include breakpoint( medium ) {
+					padding-left: 7rem;
+					padding-right: 7rem;
+					padding-bottom: 7rem;
+				}
+				
 			}
 			
 			@include breakpoint( small only ) {

@@ -66,7 +66,7 @@ function greater_jackson_habitat_volunteer_section_metabox_content() {
 			'image' => array(
 				'type' => 'media',
 				'args' => array(
-					'label' => __( 'Image', 'greater-jackson-habitat-theme' ),
+					'label' => __( 'Image (Recommended Size 950x450)', 'greater-jackson-habitat-theme' ),
 					'type' => 'image',
 				),
 			),
