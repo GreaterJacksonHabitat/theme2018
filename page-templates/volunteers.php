@@ -30,7 +30,7 @@ do_action( 'foundationpress_before_content' ); ?>
 			
 			<div class="card small-12 medium-6 columns" data-equalizer-watch>
 	
-				<?php echo wp_get_attachment_image( $section['image'], 'medium' ); ?>
+				<?php echo wp_get_attachment_image( $section['image'], 'full' ); ?>
 
 				<div class="card-content">
 					
