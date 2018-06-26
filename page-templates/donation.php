@@ -51,7 +51,8 @@ do_action( 'foundationpress_before_content' ); ?>
 
 				$post_class = array( 'expanded', 'row' );
 
-				if ( $even ) {
+				// Invert coloration
+				if ( ! $even ) {
 					$post_class[] = 'even';
 				}
 
