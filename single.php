@@ -8,7 +8,7 @@
 
 get_header(); ?>
 
-<?php get_template_part( 'template-parts/featured-image' ); ?>
+<?php get_template_part( 'template-parts/single-hero' ); ?>
 
 <?php $full_width_post_types = apply_filters( 'gjh_full_width_post_types', array(
 	'programs',

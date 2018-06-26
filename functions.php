@@ -105,6 +105,7 @@ require_once( 'library/customizer.php' );
 // Extra Meta
 require_once( 'library/admin/extra-meta/front-page.php' );
 require_once( 'library/admin/extra-meta/page.php' );
+require_once( 'library/admin/extra-meta/single.php' );
 require_once( 'library/admin/extra-meta/volunteers.php' );
 
 add_filter( 'post_type_labels_programs', 'greater_jackson_habitat_cpt_featured_image_labels' );
