@@ -46,6 +46,12 @@ do_action( 'foundationpress_before_content' ); ?>
 	
 </div>
 
+<?php 
+
+$faqs = greater_jackson_habitat_get_field( 'volunteer_faqs' );
+
+if ( $faqs ) : ?>
+
 <div class="main-wrap row">
 	<div class="small-12 columns faqs">
 		
@@ -54,8 +60,6 @@ do_action( 'foundationpress_before_content' ); ?>
 		<ul class="accordion" data-accordion>
 
 			<?php
-
-			$faqs = greater_jackson_habitat_get_field( 'volunteer_faqs' );
 
 			foreach ( $faqs as $faq ) : ?>
 
@@ -72,6 +76,8 @@ do_action( 'foundationpress_before_content' ); ?>
 		
 	</div>
 </div>
+
+<?php endif; ?>
 
 <?php get_template_part( 'template-parts/interior', 'footer' );
 
