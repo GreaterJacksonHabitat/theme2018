@@ -66,6 +66,8 @@ function greater_jackson_habitat_add_page_metaboxes() {
 		
 	}
 	
+	/*
+	
 	add_meta_box(
 		'gjh-extra-meta',
 		__( 'Extra Section', 'greater-jackson-habitat-theme' ),
@@ -74,6 +76,8 @@ function greater_jackson_habitat_add_page_metaboxes() {
 		'normal',
 		'low'
 	);
+	
+	*/
     
 }
 

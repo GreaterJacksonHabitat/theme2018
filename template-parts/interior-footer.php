@@ -7,6 +7,8 @@
 
 ?>
 
+<?php /*
+
 <?php if ( get_post_type() !== 'tribe_events' ) : ?>
 
 	<div class="expanded row extra-meta-section" data-equalizer data-equalize-on="small" data-equalize-on-stack="true">
@@ -66,6 +68,8 @@
 	</div>
 
 <?php endif; ?>
+
+*/ ?>
 
 <div class="expanded row sponsors-section" data-equalizer data-equalize-on="small" data-equalize-on-stack="true">
 	
