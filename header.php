@@ -16,6 +16,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<?php wp_head(); ?>
 	</head>
+	<?php
+	// Events Calendar, why
+	wp_reset_postdata();
+	?>
 	<body <?php body_class( array(
 		'offcanvas',
 	)); ?>>

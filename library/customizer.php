@@ -27,5 +27,17 @@ add_action( 'customize_register', function( $wp_customize ) {
         'settings'   => 'gjh_logo_image',
         'mime_type'  => 'image',
     ) ) );
+	
+	$wp_customize->add_setting( 'gjh_events_archive_image', array(
+            'default'     => 1,
+            'transport'   => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'gjh_events_archive_image', array(
+        'label'        => __( 'Events Archive Page Hero (Recommended 18:5 ratio, at least 1440x400)', 'greater-jackson-habitat-theme' ),
+        'section'    => 'greater_jackson_habitat_customizer_section',
+        'settings'   => 'gjh_events_archive_image',
+        'mime_type'  => 'image',
+    ) ) );
     
 } );

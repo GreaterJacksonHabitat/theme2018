@@ -8,12 +8,19 @@
 ?>
 
 <?php if ( has_post_thumbnail() ) : ?>
-		
+
 	<header class="featured-hero" role="banner" data-interchange="[<?php echo the_post_thumbnail_url('featured-small'); ?>, small], [<?php echo the_post_thumbnail_url('featured-medium'); ?>, medium], [<?php echo the_post_thumbnail_url('featured-large'); ?>, large], [<?php echo the_post_thumbnail_url('featured-xlarge'); ?>, xlarge]">
 
 <?php else : 
+		
+		if ( is_archive() && get_post_type() == 'tribe_events' ) {
+			$interior_hero_id = get_theme_mod( 'gjh_events_archive_image', false );
+		}
+		else {
+			$interior_hero_id = get_theme_mod( 'gjh_logo_image', false );
+		}
 
-	$interior_hero_id = get_theme_mod( 'gjh_logo_image', false ); ?>
+	?>
 
 	<header class="featured-hero" role="banner" data-interchange="[<?php echo wp_get_attachment_image_src( $interior_hero_id, 'featured-small', false )[0] ?>, small], [<?php echo wp_get_attachment_image_src( $interior_hero_id, 'featured-medium', false )[0]; ?>, medium], [<?php echo wp_get_attachment_image_src( $interior_hero_id, 'featured-large', false )[0]; ?>, large], [<?php echo wp_get_attachment_image_src( $interior_hero_id, 'featured-xlarge', false )[0]; ?>, xlarge]">
 
