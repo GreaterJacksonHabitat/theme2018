@@ -17,7 +17,8 @@ function greater_jackson_habitat_single_post_types() {
 	return apply_filters( 'gjh_single_post_types', array(
 		'programs',
 		'projects',
-		'post'
+		'post',
+		'page'
 	) );
 	
 }
@@ -34,10 +35,11 @@ function greater_jackson_habitat_add_single_metaboxes() {
 	
 	global $post;
 	
-	if ( ! in_array( $post->post_type, greater_jackson_habitat_single_post_types() ) ) return;
+	if ( ! in_array( $post->post_type, greater_jackson_habitat_single_post_types() ) || 
+		( $post->post_type == 'page' && get_post_meta( $post->ID, '_wp_page_template', true ) !== 'page-templates/about.php' ) ) return;
 	
 	add_meta_box(
-		'gjh-subtitle',
+		'gjh-hero-text',
 		__( 'Hero Text', 'greater-jackson-habitat-theme' ),
 		'greater_jackson_habitat_single_hero_text_metabox_content',
 		$post->post_type,

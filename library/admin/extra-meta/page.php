@@ -53,14 +53,18 @@ function greater_jackson_habitat_add_page_metaboxes() {
 	// Each page except the Home Page
 	if ( greater_jackson_habitat_is_editing_home() ) return;
 	
-	add_meta_box(
-		'gjh-subtitle',
-		__( 'Subtitle', 'greater-jackson-habitat-theme' ),
-		'greater_jackson_habitat_subtitle_metabox_content',
-		'page',
-		'normal',
-		'high'
-	);
+	if ( get_post_meta( $post->ID, '_wp_page_template', true ) !== 'page-templates/about.php' ) {
+	
+		add_meta_box(
+			'gjh-subtitle',
+			__( 'Subtitle', 'greater-jackson-habitat-theme' ),
+			'greater_jackson_habitat_subtitle_metabox_content',
+			'page',
+			'normal',
+			'high'
+		);
+		
+	}
 	
 	add_meta_box(
 		'gjh-extra-meta',

@@ -24,7 +24,9 @@
 		<div class="row expanded tagline text-center">
 			<div class="small-8 small-push-2 medium-12 medium-push-0 columns">
 				
-				<?php echo apply_filters( 'the_content', greater_jackson_habitat_get_field( 'gjh_hero_text', get_the_ID() ) ); ?>
+				<?php $subtitle = greater_jackson_habitat_get_field( 'gjh_subtitle', get_the_ID(), get_bloginfo( 'description' ) );
+				
+				echo apply_filters( 'the_content', greater_jackson_habitat_get_field( 'gjh_hero_text', get_the_ID(), $subtitle ) ); ?>
 				
 			</div>
 		</div>
