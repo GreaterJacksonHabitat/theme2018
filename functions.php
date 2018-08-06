@@ -139,3 +139,46 @@ require_once( 'library/shortcodes/gjh-button.php' );
 require_once( 'library/admin/tinymce/localization.php' );
 require_once( 'library/admin/tinymce/gjh-button.php' );
 require_once( 'library/admin/tinymce/color-palette.php' );
+
+/**
+ * Add Google Tag Manager code to <head>
+ * 
+ * @since		{{VERSION}}
+ * @return		void
+ */
+add_action( 'wp_head', 'gjh_tag_manager_head' );
+function gjh_tag_manager_head() {
+	
+	?>
+
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-TDZQ4LB');</script>
+	<!-- End Google Tag Manager -->
+
+	<?php 
+	
+}
+
+/**
+ * Add Google Tag Manager code to <body>
+ * 
+ * @since		{{VERSION}}
+ * @return		void
+ */
+add_action( 'gjh_body_start', 'gjh_tag_manager_body' );
+function gjh_tag_manager_body() {
+	
+	?>
+
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TDZQ4LB"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+	<?php 
+	
+}

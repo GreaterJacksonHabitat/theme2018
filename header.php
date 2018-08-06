@@ -23,6 +23,8 @@
 	<body <?php body_class( array(
 		'offcanvas',
 	)); ?>>
+		
+	<?php do_action( 'gjh_body_start' ); ?>
 
 	<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
 
