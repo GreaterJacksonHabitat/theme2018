@@ -182,3 +182,22 @@ function gjh_tag_manager_body() {
 	<?php 
 	
 }
+
+add_filter( 'tribe_event_featured_image', 'gjh_tribe_event_featured_image', 10, 3 );
+
+/**
+ * Stop Events Calendar from putting in a Featured Image when we don't want it
+ * 
+ * @param		string  $featured_image_html Featured Image HTML
+ * @param		integer $post_id             Post ID
+ * @param		string  $size                Image Size Name
+ *                                                 
+ * @since		{{VERSION}}
+ * @return		string  Featured Image HTML
+ */
+function gjh_tribe_event_featured_image( $featured_image_html, $post_id, $size ) {
+	return '';
+}
+
+// No. Just... no
+remove_action( 'wp_head', array( 'Tribe__Events__Templates', 'wpHeadFinished' ), 999 );

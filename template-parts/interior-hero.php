@@ -7,7 +7,8 @@
 
 ?>
 
-<?php if ( has_post_thumbnail() ) : ?>
+<?php if ( has_post_thumbnail() && 
+		 ( ( get_post_type() !== 'tribe_events' && ! is_archive() ) || ( get_post_type() == 'tribe_events' && is_single() ) ) ) : ?>
 
 	<header class="featured-hero" role="banner" data-interchange="[<?php echo the_post_thumbnail_url('featured-small'); ?>, small], [<?php echo the_post_thumbnail_url('featured-medium'); ?>, medium], [<?php echo the_post_thumbnail_url('featured-large'); ?>, large], [<?php echo the_post_thumbnail_url('featured-xlarge'); ?>, xlarge]">
 
@@ -68,3 +69,8 @@
 	</div>
 
 </header>
+		
+<?php 
+
+// Now you can do what you want
+Tribe__Events__Templates::wpHeadFinished();
