@@ -11,7 +11,6 @@
 
 	.site-header {
 
-		position: absolute;
 		width: 100%;
 		z-index: 999;
 
@@ -27,17 +26,26 @@
 
 		margin: 0;
 		height: auto;
-		padding: rem-calc(175%) 0 rem-calc(25%) 0;
 
-		@include breakpoint(medium) {
-			padding: rem-calc(500%) 0;
-			height: rem-calc(750);
-			margin: 0;
+		background-size: cover;
+		background-position: 50% 80%;
+		background-repeat: no-repeat;
+
+		@include breakpoint( medium ) {
+			background-position: 50% -30%;
 		}
 		
 		.marketing {
 
 			@include xy-grid;
+
+			padding: 10rem 0 5rem 0;
+
+			@include breakpoint( medium ) {
+			
+				padding: 30rem 0 5rem 0;
+
+			}
 			
 			color: #fff;
 			
@@ -57,27 +65,6 @@
 
 			& > * {
 				position: relative;
-			}
-
-		}
-
-		.image {
-			position: absolute;
-			background-size: cover;
-
-			@include breakpoint(small) {
-				background-position: 50% 80%;
-				background-repeat: no-repeat;
-				position: absolute;
-				top: 0;
-				right: 0;
-				left: 0;
-				bottom: 0;
-			}
-
-			@include breakpoint(medium) {
-				background-position: 50% 80%;
-				background-repeat: no-repeat;
 			}
 
 		}
