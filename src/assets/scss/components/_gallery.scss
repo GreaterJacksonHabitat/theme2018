@@ -1,5 +1,8 @@
 .gallery {
 
+    @include grid-row;
+    max-width: none;
+
     @for $i from 1 through 9 {
 
         &.gallery-columns-#{$i} {
