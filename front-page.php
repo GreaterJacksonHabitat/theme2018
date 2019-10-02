@@ -24,32 +24,104 @@ while ( have_posts() ) : the_post(); ?>
 
 	<?php 
 
-	$even = false;
-	$count = 1; // Not zero indexed to make modulus make more sense
+	$row_count = 0;
 	
-	if ( have_rows( 'sections' ) ) : 
+	if ( have_rows( 'rows' ) ) : 
 
-		while ( have_rows( 'sections' ) ) : the_row();
+		while ( have_rows( 'rows' ) ) : the_row(); 
+		
+			if ( $background_color = get_sub_field( 'background_color' ) ) : ?>
 
-			if ( $count % 2 == 0 ) {
-				$even = true;
-			}
-			else {
-				$even = false;
-			}
+				<style type="text/css">
 
-			$section_type = get_row_layout();
+					#home-section-<?php echo $row_count; ?> {
+						background: <?php echo $background_color; ?>;
+					}
 
-			switch ( $section_type ) {
+					<?php if ( ! gjh_is_light( $background_color ) ) : ?>
 
-				case 'leftright_block':
-					include locate_template( 'template-parts/home-sections/leftright-block.php', false, false );
-					break;
+						#home-section-<?php echo $row_count; ?>, #home-section-<?php echo $row_count; ?> p, #home-section-<?php echo $row_count; ?> h1, #home-section-<?php echo $row_count; ?> h2, #home-section-<?php echo $row_count; ?> h3, #home-section-<?php echo $row_count; ?> h4, #home-section-<?php echo $row_count; ?> h5, #home-section-<?php echo $row_count; ?> h6 {
+							color: #fff;
+						}
 
-			}
+					<?php else : ?>
 
-			$count++;
+						#home-section-<?php echo $row_count; ?>, #home-section-<?php echo $row_count; ?> p, #home-section-<?php echo $row_count; ?> h1, #home-section-<?php echo $row_count; ?> h2, #home-section-<?php echo $row_count; ?> h3, #home-section-<?php echo $row_count; ?> h4, #home-section-<?php echo $row_count; ?> h5, #home-section-<?php echo $row_count; ?> h6 {
+							color: #0a0a0a;
+						}
 
+					<?php endif; ?>
+
+				</style>
+
+			<?php endif; ?>
+
+			<section id="home-section-<?php echo $row_count; ?>" class="row expanded home-section" data-equalizer data-equalize-on="medium" data-equalize-on-stack="true">
+
+				<div class="small-12 columns">
+
+					<div class="row">
+
+						<?php if ( $title = get_sub_field( 'section_title' ) ) : ?>
+
+							<div class="small-12">
+								<h3 class="section-title">
+									<?php echo $title; ?>
+								</h3>
+							</div>
+
+						<?php endif;
+
+						$columns = ( $columns = get_sub_field( 'columns' ) ) ? count( $columns ) : 0;
+						$medium_class = 'medium-' . ( 12 / $columns );
+
+						if ( have_rows( 'columns' ) ) : 
+
+							while ( have_rows( 'columns' ) ) : the_row(); 
+
+								if ( have_rows( 'content' ) ) : 
+
+									while ( have_rows( 'content' ) ) : the_row();
+
+										$section_type = get_row_layout(); 
+										
+										// We've restricted this to only one Flexible Content field per Column, so this is fine ?>
+										<div class="small-12 <?php echo $medium_class; ?> <?php echo $section_type; ?> columns" data-equalizer-watch>
+
+											<?php switch ( $section_type ) {
+
+												case 'text_content':
+													include locate_template( 'template-parts/home-sections/text-content.php', false, false );
+													break;
+												case 'image_block':
+													include locate_template( 'template-parts/home-sections/image-block.php', false, false );
+													break;
+												case 'impact_chart':
+													include locate_template( 'template-parts/home-sections/impact-chart.php', false, false );
+													break;
+
+											} ?>
+
+										</div>
+
+									<?php endwhile;
+
+								endif;
+
+							endwhile;
+
+						endif; ?>
+
+					</div>
+
+				</div>
+
+			</section>
+
+		<?php 
+
+		$row_count++;
+		
 		endwhile;
 
 	endif; ?>

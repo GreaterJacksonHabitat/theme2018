@@ -1,0 +1,77 @@
+.impact_chart {
+
+    padding-top: 2rem;
+
+    .above-text {
+        margin-bottom: 2rem;
+    }
+
+    .chart-columns {
+
+        min-height: 0;
+
+        @include breakpoint( small only ) {
+
+            border-bottom: 1rem solid desaturate( $primary-color, $amount: 50% );
+            border-bottom: 1rem solid rgba( desaturate( $primary-color, $amount: 50% ), .2 );
+
+            padding-bottom: 2rem;
+
+            &:last-of-type {
+                border-bottom: 0;
+                padding-bottom: 0;
+            }
+
+        }
+
+        @include breakpoint( medium ) {
+
+            border-right: 1rem solid desaturate( $primary-color, $amount: 50% );
+            border-right: 1rem solid rgba( desaturate( $primary-color, $amount: 50% ), .2 );
+
+            &:last-of-type {
+                border-right: 0;
+            }
+
+        }
+
+        .circle {
+
+            background-color: $secondary-color;
+
+            border-radius: 50%;
+            height: 15rem;
+            width: 15rem;
+            position: relative;
+            margin: 0 auto;
+
+            margin-bottom: 2rem;
+
+            .icon {
+
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate( -50%, -50% );
+
+                font-size:.2rem;
+
+            }
+
+        }
+
+        .number, .text-label {
+            font-weight: 700;
+        }
+
+        .number {
+            font-size: 8rem;
+        }
+
+        .text-label {
+            font-size: 2rem;
+        }
+
+    }
+
+}

@@ -75,4 +75,40 @@
 		margin: 0;
 	}
 
+	.home-section {
+
+		padding-bottom: 3rem;
+
+		.section-title {
+
+			text-align: center;
+
+			margin: 3rem 0 2rem 0;
+
+		}
+
+		@include breakpoint( small only ) {
+
+			.columns:not(:last-of-type) {
+				margin-bottom: 2rem;
+			}
+
+		}
+
+		$column-height: rem-calc( 300 );
+
+		@include breakpoint( medium ) {
+
+			.columns {
+				min-height: $column-height;
+			}
+
+		}
+
+		@import '../partials/home/text-content';
+		@import '../partials/home/image-block';
+		@import '../partials/home/impact-chart';
+
+	}
+
 }

@@ -109,6 +109,8 @@ require_once( 'library/admin/extra-meta/single.php' );
 require_once( 'library/admin/extra-meta/volunteers.php' );
 require_once( 'library/admin/extra-meta/donation.php' );
 
+require_once( 'library/advanced-custom-fields.php' );
+
 add_filter( 'post_type_labels_programs', 'greater_jackson_habitat_cpt_featured_image_labels' );
 add_filter( 'post_type_labels_projects', 'greater_jackson_habitat_cpt_featured_image_labels' );
 add_filter( 'post_type_labels_sponsors', 'greater_jackson_habitat_cpt_featured_image_labels' );
@@ -201,3 +203,59 @@ function gjh_tribe_event_featured_image( $featured_image_html, $post_id, $size )
 
 // No. Just... no
 remove_action( 'wp_head', array( 'Tribe__Events__Templates', 'wpHeadFinished' ), 999 );
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use function SSNepenthe\ColorUtils\{
+    rgb, scale_color, is_light
+};
+
+/**
+ * Determine brightness of Hex color similar to SASS lightness()
+ * 
+ * @param       string $hex Hex Color
+ * @param		integer Percentage of lightness to check against. 33% seems to match against what Foundation's defaults for button text color choices
+ *                         
+ * @since       {{VERSION}}
+ * @return      boolean True for light, false for dark
+ */
+function gjh_is_light( $hex, $percentage = 50 ) {
+    
+    return is_light( $hex, $percentage );
+    
+}
+
+/**
+ * Replicates SASS scale-color()
+ * 
+ * @param		string $hex  Hex Color
+ * @param		array  $args Arguments, such as 'lightness'
+ *                                         
+ * @since		{{VERSION}}
+ * @return		string Scaled Hex Color
+ */
+function gjh_scale_color( $hex, $args ) {
+	
+	return scale_color( $hex, $args );
+	
+}
+
+/**
+ * Convert a Hex Color to RGB
+ * 
+ * @param		string $hex Hex Color
+ *                         
+ * @since		{{VERSION}}
+ * @return		array  RGB Color Array
+ */
+function gjh_hex_to_rgb( $hex ) {
+	
+	$rgb = rgb( $hex );
+	
+	return array(
+		'r' => $rgb->getRed(),
+		'g' => $rgb->getGreen(),
+		'b' => $rgb->getBlue(),
+	);
+	
+}
