@@ -3,8 +3,6 @@
 }
 
 .main-wrap {
-  @include xy-grid-container;
-  @include xy-grid();
   margin-top: 1rem;
 
   @include breakpoint(medium) {
