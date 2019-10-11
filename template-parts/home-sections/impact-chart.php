@@ -31,7 +31,11 @@ if ( have_rows( 'columns' ) ) : ?>
 
 				<div class="circle">
 
+					<div class="icon">
 
+						<?php echo wp_get_attachment_image( get_sub_field( 'icon' ), 'full' ); ?>
+
+					</div>
 
 				</div>
 
