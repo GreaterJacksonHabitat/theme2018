@@ -44,6 +44,16 @@
 		background-position: 50% 80%;
 		background-repeat: no-repeat;
 
+		@include breakpoint( small only ) {
+
+			margin: -9rem;
+
+			.tagline {
+				max-width: 25rem;
+			}
+
+		}
+
 		@include breakpoint( medium ) {
 			background-position: 50% -30%;
 		}
