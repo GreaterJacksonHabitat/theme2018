@@ -54,11 +54,12 @@
 
 .sticky-top-bar {
   background-color: $primary-color;
-  
+}
+
+.sticky-top-bar, .top-bar-container {
   &, * {
     transition: ease all 300ms;
   }
-  
 }
 
 .is-stuck.sticky-top-bar {
@@ -85,6 +86,20 @@
     &:hover:not(.button) {
       background-color: $secondary-color;
     }
+  }
+
+  &.top-nav {
+
+    .menu a {
+
+      color: $primary-color;
+
+      &:hover {
+        color: #fff;
+      }
+
+    }
+
   }
 
   .menu .active > a { background-color: #ccc; }

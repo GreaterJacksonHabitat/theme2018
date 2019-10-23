@@ -9,17 +9,18 @@
 
 register_nav_menus( array(
 	'primary'  => esc_html__( 'Primary', 'greater-jackson-habitat-theme' ),
+	'top-bar'  => esc_html__( 'Top Bar', 'greater-jackson-habitat-theme' ),
 	'footer'  => esc_html__( 'Footer', 'greater-jackson-habitat-theme' ),
 ));
 
 
 /**
- * Desktop navigation - right top bar
+ * Desktop navigation - main nav
  *
  * @link http://codex.wordpress.org/Function_Reference/wp_nav_menu
  */
-if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
-	function foundationpress_top_bar_r() {
+if ( ! function_exists( 'foundationpress_main_nav' ) ) {
+	function foundationpress_main_nav() {
 		wp_nav_menu( array(
 			'container'      => false,
 			'menu_class'     => 'dropdown menu',
@@ -32,6 +33,24 @@ if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
 	}
 }
 
+/**
+ * Desktop navigation - top bar
+ *
+ * @link http://codex.wordpress.org/Function_Reference/wp_nav_menu
+ */
+if ( ! function_exists( 'foundationpress_top_bar' ) ) {
+	function foundationpress_top_bar() {
+		wp_nav_menu( array(
+			'container'      => false,
+			'menu_class'     => 'dropdown menu',
+			'items_wrap'     => '<ul id="%1$s" class="%2$s top-bar-menu" data-dropdown-menu>%3$s</ul>',
+			'theme_location' => 'top-bar',
+			'depth'          => 3,
+			'fallback_cb'    => false,
+			'walker'         => new Foundationpress_Top_Bar_Walker(),
+		));
+	}
+}
 
 /**
  * Mobile navigation - topbar (default) or offcanvas

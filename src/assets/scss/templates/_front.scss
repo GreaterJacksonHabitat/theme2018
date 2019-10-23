@@ -11,11 +11,24 @@
 
 	.site-header {
 
-		width: 100%;
-		z-index: 999;
+		.top-bar-container, .sticky-container {
+
+			width: 100%;
+			z-index: 999;
+			position: relative;
+
+		}
 
 		.top-bar, .title-bar {
 			position: relative;
+		}
+
+		.top-bar.top-nav {
+
+			.menu a {
+				color: #fff;
+			}
+
 		}
 
 	}
