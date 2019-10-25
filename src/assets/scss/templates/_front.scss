@@ -57,6 +57,14 @@
 		@include breakpoint( medium ) {
 			background-position: 50% -30%;
 		}
+
+		@include breakpoint( teneighty ) {
+			background-position: 50% -20%;
+		}
+
+		@include breakpoint( fourk ) {
+			background-position: 50% -5%;
+		}
 		
 		.marketing {
 
