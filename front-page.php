@@ -88,19 +88,7 @@ while ( have_posts() ) : the_post(); ?>
 										// We've restricted this to only one Flexible Content field per Column, so this is fine ?>
 										<div class="small-12 <?php echo $medium_class; ?> <?php echo $section_type; ?> columns" data-equalizer-watch>
 
-											<?php switch ( $section_type ) {
-
-												case 'text_content':
-													include locate_template( 'template-parts/home-sections/text-content.php', false, false );
-													break;
-												case 'image_block':
-													include locate_template( 'template-parts/home-sections/image-block.php', false, false );
-													break;
-												case 'impact_chart':
-													include locate_template( 'template-parts/home-sections/impact-chart.php', false, false );
-													break;
-
-											} ?>
+											<?php include locate_template( 'template-parts/home-sections/' . $section_type . '.php', false, false ); ?>
 
 										</div>
 
