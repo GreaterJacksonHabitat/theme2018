@@ -59,45 +59,51 @@ require_once( 'library/responsive-images.php' );
 
 global $greater_jackson_habitat_field_helpers;
 
-require_once( 'library/rbm-field-helpers/rbm-field-helpers.php' );
-$greater_jackson_habitat_field_helpers = new RBM_FieldHelpers( array(
-    'ID'   => 'greater_jackson_habitat', // Your Theme/Plugin uses this to differentiate its instance of RBM FH from others when saving/grabbing data
-    'l10n' => array(
-        'field_table'    => array(
-            'delete_row'    => __( 'Delete Row', 'greater-jackson-habitat-theme' ),
-            'delete_column' => __( 'Delete Column', 'greater-jackson-habitat-theme' ),
-        ),
-        'field_select'   => array(
-            'no_options'       => __( 'No select options.', 'greater-jackson-habitat-theme' ),
-            'error_loading'    => __( 'The results could not be loaded', 'greater-jackson-habitat-theme' ),
-            /* translators: %d is number of characters over input limit */
-            'input_too_long'   => __( 'Please delete %d character(s)', 'greater-jackson-habitat-theme' ),
-            /* translators: %d is number of characters under input limit */
-            'input_too_short'  => __( 'Please enter %d or more characters', 'greater-jackson-habitat-theme' ),
-            'loading_more'     => __( 'Loading more results...', 'greater-jackson-habitat-theme' ),
-            /* translators: %d is maximum number items selectable */
-            'maximum_selected' => __( 'You can only select %d item(s)', 'greater-jackson-habitat-theme' ),
-            'no_results'       => __( 'No results found', 'greater-jackson-habitat-theme' ),
-            'searching'        => __( 'Searching...', 'greater-jackson-habitat-theme' ),
-        ),
-        'field_repeater' => array(
-            'collapsable_title' => __( 'New Row', 'greater-jackson-habitat-theme' ),
-            'confirm_delete'    => __( 'Are you sure you want to delete this element?', 'greater-jackson-habitat-theme' ),
-            'delete_item'       => __( 'Delete', 'greater-jackson-habitat-theme' ),
-            'add_item'          => __( 'Add', 'greater-jackson-habitat-theme' ),
-        ),
-        'field_media'    => array(
-            'button_text'        => __( 'Upload / Choose Media', 'greater-jackson-habitat-theme' ),
-            'button_remove_text' => __( 'Remove Media', 'greater-jackson-habitat-theme' ),
-            'window_title'       => __( 'Choose Media', 'greater-jackson-habitat-theme' ),
-        ),
-        'field_checkbox' => array(
-            'no_options_text' => __( 'No options available.', 'greater-jackson-habitat-theme' ),
-        ),
-    ),
-) );
+if ( class_exists( 'RBM_FieldHelpers' ) ) {
 
-require_once( 'library/rbm-field-helpers-functions.php' );
+    $greater_jackson_habitat_field_helpers = new RBM_FieldHelpers( array(
+        'ID'   => 'greater_jackson_habitat', // Your Theme/Plugin uses this to differentiate its instance of RBM FH from others when saving/grabbing data
+        'l10n' => array(
+            'field_table'    => array(
+                'delete_row'    => __( 'Delete Row', 'greater-jackson-habitat-theme' ),
+                'delete_column' => __( 'Delete Column', 'greater-jackson-habitat-theme' ),
+            ),
+            'field_select'   => array(
+                'no_options'       => __( 'No select options.', 'greater-jackson-habitat-theme' ),
+                'error_loading'    => __( 'The results could not be loaded', 'greater-jackson-habitat-theme' ),
+                /* translators: %d is number of characters over input limit */
+                'input_too_long'   => __( 'Please delete %d character(s)', 'greater-jackson-habitat-theme' ),
+                /* translators: %d is number of characters under input limit */
+                'input_too_short'  => __( 'Please enter %d or more characters', 'greater-jackson-habitat-theme' ),
+                'loading_more'     => __( 'Loading more results...', 'greater-jackson-habitat-theme' ),
+                /* translators: %d is maximum number items selectable */
+                'maximum_selected' => __( 'You can only select %d item(s)', 'greater-jackson-habitat-theme' ),
+                'no_results'       => __( 'No results found', 'greater-jackson-habitat-theme' ),
+                'searching'        => __( 'Searching...', 'greater-jackson-habitat-theme' ),
+            ),
+            'field_repeater' => array(
+                'collapsable_title' => __( 'New Row', 'greater-jackson-habitat-theme' ),
+                'confirm_delete'    => __( 'Are you sure you want to delete this element?', 'greater-jackson-habitat-theme' ),
+                'delete_item'       => __( 'Delete', 'greater-jackson-habitat-theme' ),
+                'add_item'          => __( 'Add', 'greater-jackson-habitat-theme' ),
+            ),
+            'field_media'    => array(
+                'button_text'        => __( 'Upload / Choose Media', 'greater-jackson-habitat-theme' ),
+                'button_remove_text' => __( 'Remove Media', 'greater-jackson-habitat-theme' ),
+                'window_title'       => __( 'Choose Media', 'greater-jackson-habitat-theme' ),
+            ),
+            'field_checkbox' => array(
+                'no_options_text' => __( 'No options available.', 'greater-jackson-habitat-theme' ),
+            ),
+        ),
+    ) );
+
+    require_once( 'library/rbm-field-helpers-functions.php' );
+
+}
+else {
+    wp_die( 'RBM Field Helpers Wrapper must be active' );
+}
 
 // Customizer
 require_once( 'library/customizer.php' );
