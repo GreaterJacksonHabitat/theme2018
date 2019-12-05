@@ -30,29 +30,30 @@
 		@include breakpoint( fourk ) {
 			background-position: 50% -13%;
 		}
-		
+
 		.marketing {
 
 			padding: 10rem 0 5rem 0;
 
 			@include breakpoint( medium ) {
-			
+
 				padding: 30rem 0 5rem 0;
 
 			}
-			
+
 			color: #fff;
-			
+
 			p {
 				@extend h1;
 				color: #fff;
 				font-weight: 700;
 			}
-			
+
+
 			* {
 				font-weight: 700;
 			}
-			
+
 			@include breakpoint(medium) {
 				margin-top: rem-calc(-300%);
 			}
@@ -64,7 +65,7 @@
 		}
 
 	}
-	
+
 	.footer-container {
 		margin: 0;
 	}
@@ -75,6 +76,8 @@
 
 		.section-title {
 
+			font-weight: bold;
+			
 			text-align: center;
 
 			margin: 3rem 0 2rem 0;
