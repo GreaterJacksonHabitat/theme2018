@@ -11999,12 +11999,12 @@ exports.Tooltip = Tooltip;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __WEBPACK_LOCAL_MODULE_1__, __WEBPACK_LOCAL_MODULE_1__factory, __WEBPACK_LOCAL_MODULE_1__module;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_LOCAL_MODULE_2__;var __WEBPACK_LOCAL_MODULE_3__, __WEBPACK_LOCAL_MODULE_3__factory, __WEBPACK_LOCAL_MODULE_3__module;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_LOCAL_MODULE_4__;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_LOCAL_MODULE_5__;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_LOCAL_MODULE_6__;var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __WEBPACK_LOCAL_MODULE_1__, __WEBPACK_LOCAL_MODULE_1__factory, __WEBPACK_LOCAL_MODULE_1__module;var __WEBPACK_LOCAL_MODULE_2__, __WEBPACK_LOCAL_MODULE_2__factory, __WEBPACK_LOCAL_MODULE_2__module;var __WEBPACK_LOCAL_MODULE_3__, __WEBPACK_LOCAL_MODULE_3__factory, __WEBPACK_LOCAL_MODULE_3__module;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_LOCAL_MODULE_4__;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_LOCAL_MODULE_5__;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_LOCAL_MODULE_6__;var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /*!
- * Masonry PACKAGED v4.2.1
+ * Masonry PACKAGED v4.2.2
  * Cascading grid layout library
  * https://masonry.desandro.com
  * MIT License
@@ -12255,22 +12255,19 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 
 /*!
- * getSize v2.0.2
+ * getSize v2.0.3
  * measure size of elements
  * MIT license
  */
 
-/*jshint browser: true, strict: true, undef: true, unused: true */
-/*global define: false, module: false, console: false */
+/* jshint browser: true, strict: true, undef: true, unused: true */
+/* globals console: false */
 
 (function (window, factory) {
-  'use strict';
-
+  /* jshint strict: false */ /* globals define, module */
   if (true) {
     // AMD
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_LOCAL_MODULE_2__ = (function () {
-      return factory();
-    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)));
+    !(__WEBPACK_LOCAL_MODULE_2__factory = (factory), (__WEBPACK_LOCAL_MODULE_2__module = { id: "get-size/get-size", exports: {}, loaded: false }), __WEBPACK_LOCAL_MODULE_2__ = (typeof __WEBPACK_LOCAL_MODULE_2__factory === 'function' ? (__WEBPACK_LOCAL_MODULE_2__factory.call(__WEBPACK_LOCAL_MODULE_2__module.exports, __webpack_require__, __WEBPACK_LOCAL_MODULE_2__module.exports, __WEBPACK_LOCAL_MODULE_2__module)) : __WEBPACK_LOCAL_MODULE_2__factory), (__WEBPACK_LOCAL_MODULE_2__module.loaded = true), __WEBPACK_LOCAL_MODULE_2__ === undefined && (__WEBPACK_LOCAL_MODULE_2__ = __WEBPACK_LOCAL_MODULE_2__module.exports));
   } else if ((typeof module === 'undefined' ? 'undefined' : _typeof(module)) == 'object' && module.exports) {
     // CommonJS
     module.exports = factory();
@@ -12329,7 +12326,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   function getStyle(elem) {
     var style = getComputedStyle(elem);
     if (!style) {
-      logError('Style returned ' + style + '. Are you running this code in a hidden iframe on Firefox? ' + 'See http://bit.ly/getsizebug1');
+      logError('Style returned ' + style + '. Are you running this code in a hidden iframe on Firefox? ' + 'See https://bit.ly/getsizebug1');
     }
     return style;
   }
@@ -12355,8 +12352,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     // -------------------------- box sizing -------------------------- //
 
     /**
-     * WebKit measures the outer-width on style.width on border-box elems
-     * IE & Firefox<29 measures the inner-width
+     * Chrome & Safari measure the outer-width on style.width on border-box elems
+     * IE11 & Firefox<29 measures the inner-width
      */
     var div = document.createElement('div');
     div.style.width = '200px';
@@ -12368,8 +12365,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     var body = document.body || document.documentElement;
     body.appendChild(div);
     var style = getStyle(div);
+    // round value for browser zoom. desandro/masonry#928
+    isBoxSizeOuter = Math.round(getStyleSize(style.width)) == 200;
+    getSize.isBoxSizeOuter = isBoxSizeOuter;
 
-    getSize.isBoxSizeOuter = isBoxSizeOuter = getStyleSize(style.width) == 200;
     body.removeChild(div);
   }
 
@@ -12500,7 +12499,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 
 /**
- * Fizzy UI utils v2.0.5
+ * Fizzy UI utils v2.0.7
  * MIT license
  */
 
@@ -12544,22 +12543,27 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   // ----- makeArray ----- //
 
+  var arraySlice = Array.prototype.slice;
+
   // turn element or nodeList into an array
   utils.makeArray = function (obj) {
-    var ary = [];
     if (Array.isArray(obj)) {
       // use object if already an array
-      ary = obj;
-    } else if (obj && (typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) == 'object' && typeof obj.length == 'number') {
-      // convert nodeList to array
-      for (var i = 0; i < obj.length; i++) {
-        ary.push(obj[i]);
-      }
-    } else {
-      // array of single index
-      ary.push(obj);
+      return obj;
     }
-    return ary;
+    // return empty array if undefined or null. #6
+    if (obj === null || obj === undefined) {
+      return [];
+    }
+
+    var isArrayLike = (typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) == 'object' && typeof obj.length == 'number';
+    if (isArrayLike) {
+      // convert nodeList to array
+      return arraySlice.call(obj);
+    }
+
+    // array of single index
+    return [obj];
   };
 
   // ----- removeFrom ----- //
@@ -12638,22 +12642,21 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   // ----- debounceMethod ----- //
 
   utils.debounceMethod = function (_class, methodName, threshold) {
+    threshold = threshold || 100;
     // original method
     var method = _class.prototype[methodName];
     var timeoutName = methodName + 'Timeout';
 
     _class.prototype[methodName] = function () {
       var timeout = this[timeoutName];
-      if (timeout) {
-        clearTimeout(timeout);
-      }
-      var args = arguments;
+      clearTimeout(timeout);
 
+      var args = arguments;
       var _this = this;
       this[timeoutName] = setTimeout(function () {
         method.apply(_this, args);
         delete _this[timeoutName];
-      }, threshold || 100);
+      }, threshold);
     };
   };
 
@@ -12844,11 +12847,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     var isOriginTop = this.layout._getOption('originTop');
     var xValue = style[isOriginLeft ? 'left' : 'right'];
     var yValue = style[isOriginTop ? 'top' : 'bottom'];
+    var x = parseFloat(xValue);
+    var y = parseFloat(yValue);
     // convert percent to pixels
     var layoutSize = this.layout.size;
-    var x = xValue.indexOf('%') != -1 ? parseFloat(xValue) / 100 * layoutSize.width : parseInt(xValue, 10);
-    var y = yValue.indexOf('%') != -1 ? parseFloat(yValue) / 100 * layoutSize.height : parseInt(yValue, 10);
-
+    if (xValue.indexOf('%') != -1) {
+      x = x / 100 * layoutSize.width;
+    }
+    if (yValue.indexOf('%') != -1) {
+      y = y / 100 * layoutSize.height;
+    }
     // clean up 'auto' or other non-integer values
     x = isNaN(x) ? 0 : x;
     y = isNaN(y) ? 0 : y;
@@ -12909,9 +12917,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     var curX = this.position.x;
     var curY = this.position.y;
 
-    var compareX = parseInt(x, 10);
-    var compareY = parseInt(y, 10);
-    var didNotMove = compareX === this.position.x && compareY === this.position.y;
+    var didNotMove = x == this.position.x && y == this.position.y;
 
     // save end position
     this.setPosition(x, y);
@@ -12954,8 +12960,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   proto.moveTo = proto._transitionTo;
 
   proto.setPosition = function (x, y) {
-    this.position.x = parseInt(x, 10);
-    this.position.y = parseInt(y, 10);
+    this.position.x = parseFloat(x);
+    this.position.y = parseFloat(y);
   };
 
   // ----- transition ----- //
@@ -13258,7 +13264,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 
 /*!
- * Outlayer v2.1.0
+ * Outlayer v2.1.1
  * the brains and guts of a layout library
  * MIT license
  */
@@ -14167,7 +14173,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 
 /*!
- * Masonry v4.2.1
+ * Masonry v4.2.2
  * Cascading grid layout library
  * https://masonry.desandro.com
  * MIT License
