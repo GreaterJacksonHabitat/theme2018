@@ -5,40 +5,30 @@
 		margin: 0;
 		height: auto;
 
+		@include breakpoint( large ) {
+			height: rem-calc( 650 );
+		}
+
 		background-size: cover;
-		background-position: 50% -280%;
+		background-position: 50% 0%;
 		background-repeat: no-repeat;
 
 		@include breakpoint( small only ) {
-
-			margin: -9rem;
 
 			.tagline {
 				max-width: 25rem;
 			}
 
 		}
-
-		@include breakpoint( medium ) {
-			background-position: 50% -97%;
-		}
-
-		@include breakpoint( teneighty ) {
-			background-position: 50% -44%;
-		}
-
-		@include breakpoint( fourk ) {
-			background-position: 50% -13%;
-		}
 		
 		.marketing {
 
-			padding: 10rem 0 5rem 0;
+			@include breakpoint( medium down ) {
+				padding: 10rem 0 5rem 0;
+			}
 
-			@include breakpoint( medium ) {
-			
-				padding: 30rem 0 5rem 0;
-
+			@include breakpoint( large ) {
+				padding: 20rem 0 5rem 0;
 			}
 			
 			color: #fff;
@@ -51,10 +41,6 @@
 			
 			* {
 				font-weight: 700;
-			}
-			
-			@include breakpoint(medium) {
-				margin-top: rem-calc(-300%);
 			}
 
 			& > * {
