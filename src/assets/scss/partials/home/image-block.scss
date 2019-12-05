@@ -19,9 +19,31 @@
 
     }
 
-    .img-container:hover .background-image {
-      opacity: 0.7;
-      }
+      a.image_link {
+
+       &:after {
+
+            content: '';
+            position: absolute;
+
+        }
+
+        &:hover, &:focus {
+
+            &:after {
+
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, .2);
+
+            }
+
+        }
+
+    }
+
 
     .button {
 
