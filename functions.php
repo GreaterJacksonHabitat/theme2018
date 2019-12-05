@@ -14,6 +14,8 @@
  * @since FoundationPress 1.0.0
  */
 
+add_filter( 'github_updater_disable_wpcron', '__return_true' );
+
 $theme_header = wp_get_theme();
 
 define( 'THEME_VER', $theme_header->get( 'Version' ) );
