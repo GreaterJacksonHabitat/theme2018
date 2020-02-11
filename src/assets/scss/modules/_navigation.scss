@@ -66,6 +66,10 @@
 	@include background-opacity( $primary-color, 0.9 );
 }
 
+.top-bar-container {
+  background-color: $secondary-color;
+}
+
 .top-bar {
 
   .top-bar-title a {
@@ -96,10 +100,10 @@
 
     .menu a {
 
-      color: $secondary-color;
+      color: #fff;
 
       &:hover {
-        color: #fff;
+        color: $primary-color;
       }
 
     }
