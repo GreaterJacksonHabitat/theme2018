@@ -1,7 +1,7 @@
 {
   "name": "GreaterJacksonHabitatTheme2018",
   "title": "GreaterJacksonHabitatTheme2018",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "main": "gulpfile.js",
   "scripts": {
