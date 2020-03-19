@@ -1,0 +1,19 @@
+$brand-colors: (
+    bright-blue: #02abd7,
+    bright-green: #c3d500,
+    habitat-blue: #385888,
+    habitat-green: #3eae2a,
+    orange: #ff7d3f,
+    brick: #a83338,
+);
+
+@each $name, $color in $brand-colors {
+
+    .#{$name}-background {
+
+        background-color: $color;
+        @include light-or-dark-text( $color );
+
+    }
+
+}
