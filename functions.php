@@ -144,10 +144,12 @@ function greater_jackson_habitat_cpt_featured_image_labels( $labels ) {
 
 // Shortcodes
 require_once( 'library/shortcodes/gjh-button.php' );
+require_once( 'library/shortcodes/gjh-slider.php' );
 
 // TinyMCE functionality
 require_once( 'library/admin/tinymce/localization.php' );
 require_once( 'library/admin/tinymce/gjh-button.php' );
+require_once( 'library/admin/tinymce/gjh-slider.php' );
 require_once( 'library/admin/tinymce/color-palette.php' );
 
 /**

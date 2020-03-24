@@ -5,12 +5,14 @@
 		margin: 0;
 		height: auto;
 
+		background-size: cover;
+		background-position: 25% 75%;
+
 		@include breakpoint( large ) {
 			height: rem-calc( 650 );
+			background-position: 50% 75%;
 		}
 
-		background-size: cover;
-		background-position: 50% 0%;
 		background-repeat: no-repeat;
 
 		@include breakpoint( small only ) {
