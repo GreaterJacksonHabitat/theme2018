@@ -1,0 +1,41 @@
+.gallery {
+
+    @include grid-row;
+    max-width: none;
+
+    @for $i from 1 through 9 {
+
+        &.gallery-columns-#{$i} {
+
+            @include grid-layout( $i, '.gallery-item', $grid-column-gutter );
+
+            @include breakpoint( small only ) {
+
+                .gallery-item {
+                    width: 100%;
+                }
+
+            }
+
+        }
+
+    }
+
+    .gallery-item {
+
+        @each $breakpoint, $margin in $grid-column-gutter {
+
+            @include breakpoint( $breakpoint ) {
+                margin-bottom: $margin;
+            }
+
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+    }
+
+}

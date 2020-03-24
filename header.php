@@ -28,6 +28,10 @@
 
 	<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
 
+	<?php if ( function_exists( 'gjh_show_inset_alerts' ) ) {
+			gjh_show_inset_alerts();
+	} ?>
+
 	<header class="site-header" role="banner">
 
 		<div class="top-bar-container">
