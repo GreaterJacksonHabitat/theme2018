@@ -22,15 +22,34 @@
 			}
 
 		}
+
+		position: relative;
 		
 		.marketing {
 
-			@include breakpoint( medium down ) {
-				padding: 10rem 0 5rem 0;
+			padding: 0;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+
+			div {
+				height: 100%;
 			}
 
-			@include breakpoint( large ) {
-				padding: 20rem 0 5rem 0;
+			.vibrant-life-row-shortcode {
+
+				height: auto;
+
+				div {
+					height: auto;
+				}
+
+				top: 50%;
+				transform: translateY( -50% );
+				position: absolute;
+
 			}
 
 			color: #fff;
