@@ -29,6 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <?php if ( ! gjh_is_light( $background_color ) ) : ?>
 
                     color: #fff;
+                    font-weight: 700;
 
                 <?php else : ?>
 

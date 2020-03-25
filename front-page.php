@@ -38,19 +38,20 @@ while ( have_posts() ) : the_post(); ?>
 						background: <?php echo $background_color; ?>;
 					}
 
-					<?php if ( ! gjh_is_light( $background_color ) ) : ?>
+					#home-section-<?php echo $row_count; ?>, #home-section-<?php echo $row_count; ?> p, #home-section-<?php echo $row_count; ?> h1, #home-section-<?php echo $row_count; ?> h2, #home-section-<?php echo $row_count; ?> h3, #home-section-<?php echo $row_count; ?> h4, #home-section-<?php echo $row_count; ?> h5, #home-section-<?php echo $row_count; ?> h6 {
 
-						#home-section-<?php echo $row_count; ?>, #home-section-<?php echo $row_count; ?> p, #home-section-<?php echo $row_count; ?> h1, #home-section-<?php echo $row_count; ?> h2, #home-section-<?php echo $row_count; ?> h3, #home-section-<?php echo $row_count; ?> h4, #home-section-<?php echo $row_count; ?> h5, #home-section-<?php echo $row_count; ?> h6 {
+						<?php if ( ! gjh_is_light( $background_color ) ) : ?>
+
 							color: #fff;
-						}
+							font-weight: 700;
 
-					<?php else : ?>
-
-						#home-section-<?php echo $row_count; ?>, #home-section-<?php echo $row_count; ?> p, #home-section-<?php echo $row_count; ?> h1, #home-section-<?php echo $row_count; ?> h2, #home-section-<?php echo $row_count; ?> h3, #home-section-<?php echo $row_count; ?> h4, #home-section-<?php echo $row_count; ?> h5, #home-section-<?php echo $row_count; ?> h6 {
+						<?php else : ?>
+							
 							color: #0a0a0a;
-						}
 
-					<?php endif; ?>
+						<?php endif; ?>
+
+					}
 
 				</style>
 
