@@ -63,12 +63,50 @@ while ( have_posts() ) : the_post(); ?>
 
 					<div class="row">
 
-						<?php if ( $title = get_sub_field( 'section_title' ) ) : ?>
+						<?php if ( $title = get_sub_field( 'section_title' ) ) : 
+							
+							$no_tags = strip_tags( $title );
+
+							$surrounding_tags = explode( $no_tags, $title );
+							
+							?>
 
 							<div class="small-12">
+
+								<?php if ( isset( $surrounding_tags[0] ) && $surrounding_tags[0] ) : 
+
+									echo $surrounding_tags[0]; 
+
+								endif; ?>
+
 								<h3 class="section-title">
-									<?php echo $title; ?>
+
+									<?php 
+									
+									$link = get_sub_field( 'section_title_link' ); 
+
+									if ( $link ) : ?>
+
+										<a href="<?php echo esc_attr( $link ); ?>"<?php echo ( ! empty( get_sub_field( 'open_link_in_new_tab' ) ) ? ' target="_blank"' : '' ); ?>>
+									
+									<?php endif; ?>
+
+											<?php echo $no_tags; ?>
+
+									<?php if ( $link ) : ?>
+
+										</a>
+
+									<?php endif; ?>
+
 								</h3>
+
+								<?php if ( isset( $surrounding_tags[1] ) && $surrounding_tags[1] ) : 
+
+									echo $surrounding_tags[1]; 
+
+								endif; ?>
+
 							</div>
 
 						<?php endif;
