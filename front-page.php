@@ -53,6 +53,22 @@ while ( have_posts() ) : the_post(); ?>
 
 					}
 
+					<?php if ( ! gjh_is_light( $background_color ) ) : ?>
+
+						#home-section-<?php echo $row_count; ?> h1 a, #home-section-<?php echo $row_count; ?> h2 a, #home-section-<?php echo $row_count; ?> h3 a, #home-section-<?php echo $row_count; ?> h4 a, #home-section-<?php echo $row_count; ?> h5 a, #home-section-<?php echo $row_count; ?> h6 a {
+
+							color: #fff;
+
+						}
+
+						#home-section-<?php echo $row_count; ?> h1 a:hover, #home-section-<?php echo $row_count; ?> h2 a:hover, #home-section-<?php echo $row_count; ?> h3 a:hover, #home-section-<?php echo $row_count; ?> h4 a:hover, #home-section-<?php echo $row_count; ?> h5 a:hover, #home-section-<?php echo $row_count; ?> h6 a:hover, #home-section-<?php echo $row_count; ?> h1 a:focus, #home-section-<?php echo $row_count; ?> h2 a:focus, #home-section-<?php echo $row_count; ?> h3 a:focus, #home-section-<?php echo $row_count; ?> h4 a:focus, #home-section-<?php echo $row_count; ?> h5 a:focus, #home-section-<?php echo $row_count; ?> h6 a:focus {
+
+							color: <?php echo gjh_scale_color( '#ffffff', array( 'lightness' => -14 ) ); ?>
+
+						}
+
+					<?php endif; ?>
+
 				</style>
 
 			<?php endif; ?>
