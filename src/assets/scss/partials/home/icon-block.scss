@@ -2,6 +2,10 @@
 
     padding-top: 2rem;
 
+    .icon-block {
+        padding: 1rem;
+    }
+
     .circle {
 
         background-color: $secondary-color;
@@ -11,6 +15,11 @@
         width: 15rem;
         position: relative;
         margin: 0 auto;
+
+        @include breakpoint( medium only ) {
+            height: 10rem;
+            width: 10rem;
+        }
 
         margin-bottom: 2rem;
 

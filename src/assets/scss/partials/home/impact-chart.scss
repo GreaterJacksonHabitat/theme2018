@@ -45,6 +45,11 @@
             position: relative;
             margin: 0 auto;
 
+            @include breakpoint( medium only ) {
+                height: 10rem;
+                width: 10rem;
+            }
+
             margin-bottom: 2rem;
 
             .icon {

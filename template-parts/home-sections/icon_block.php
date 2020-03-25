@@ -18,13 +18,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
         <style type="text/css">
 
-            #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> {
+            #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> .icon-block {
 
                 background-color: <?php echo $background_color; ?>;
 
             }
 
-            #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?>, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> p, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h1, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h2, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h3, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h4, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h5, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h6 {
+            #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?>.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> p.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h1.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h2.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h3.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h4.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h5.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h6 {
 
                 <?php if ( ! gjh_is_light( $background_color ) ) : ?>
 
