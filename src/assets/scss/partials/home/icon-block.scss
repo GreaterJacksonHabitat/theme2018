@@ -1,0 +1,38 @@
+.icon_block {
+
+    padding-top: 2rem;
+
+    .circle {
+
+        background-color: $secondary-color;
+
+        border-radius: 50%;
+        height: 15rem;
+        width: 15rem;
+        position: relative;
+        margin: 0 auto;
+
+        margin-bottom: 2rem;
+
+        .icon {
+
+            & > * {
+
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate( -50%, -50% );
+                width: 50%;
+                height: auto;
+
+            }
+
+        }
+
+    }
+
+    .below-text {
+        margin-top: 2rem;
+    }
+
+}

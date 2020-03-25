@@ -74,6 +74,7 @@ while ( have_posts() ) : the_post(); ?>
 
 						$columns = ( $columns = get_sub_field( 'columns' ) ) ? count( $columns ) : 0;
 						$medium_class = 'medium-' . ( 12 / $columns );
+						$column_count = 0;
 
 						if ( have_rows( 'columns' ) ) : 
 
@@ -86,13 +87,17 @@ while ( have_posts() ) : the_post(); ?>
 										$section_type = get_row_layout(); 
 										
 										// We've restricted this to only one Flexible Content field per Column, so this is fine ?>
-										<div class="small-12 <?php echo $medium_class; ?> <?php echo $section_type; ?> columns" data-equalizer-watch>
+										<div class="small-12 <?php echo $medium_class; ?> <?php echo $section_type; ?> columns column-<?php echo $column_count; ?>" data-equalizer-watch>
 
 											<?php include locate_template( 'template-parts/home-sections/' . $section_type . '.php', false, false ); ?>
 
 										</div>
 
-									<?php endwhile;
+									<?php 
+
+										$column_count++;
+									
+									endwhile;
 
 								endif;
 

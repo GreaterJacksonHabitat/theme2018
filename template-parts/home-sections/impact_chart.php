@@ -21,7 +21,7 @@ if ( $above_text = get_sub_field( 'above_text' ) ) : ?>
 $chart_columns = ( $chart_columns = get_sub_field( 'columns' ) ) ? count( $chart_columns ) : 0;
 $chart_medium_class = 'medium-' . ( 12 / $chart_columns );
 
-$column_index = 0;
+$sub_column_count = 0;
 
 if ( have_rows( 'columns' ) ) : ?>
 
@@ -33,7 +33,7 @@ if ( have_rows( 'columns' ) ) : ?>
 
 				<style type="text/css">
 
-					#home-section-<?php echo $row_count; ?> .chart-columns.column-<?php echo $column_index; ?> .circle {
+					#home-section-<?php echo $row_count; ?> .chart-columns.column-<?php echo $sub_column_count; ?> .circle {
 
 						background-color: <?php echo $background_color; ?>;
 
@@ -43,7 +43,7 @@ if ( have_rows( 'columns' ) ) : ?>
 
 			<?php endif; ?>
 
-			<div class="small-12 <?php echo $chart_medium_class; ?> columns chart-columns column-<?php echo $column_index; ?>">
+			<div class="small-12 <?php echo $chart_medium_class; ?> columns chart-columns column-<?php echo $sub_column_count; ?>">
 
 				<div class="circle">
 
@@ -70,7 +70,7 @@ if ( have_rows( 'columns' ) ) : ?>
 			
 			</div>
 
-			<?php $column_index++; ?>
+			<?php $sub_column_count++; ?>
 
 		<?php endwhile; ?>
 

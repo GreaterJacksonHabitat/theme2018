@@ -231,7 +231,7 @@ use function SSNepenthe\ColorUtils\{
  * @since       {{VERSION}}
  * @return      boolean True for light, false for dark
  */
-function gjh_is_light( $hex, $percentage = 50 ) {
+function gjh_is_light( $hex, $percentage = 65 ) {
     
     return is_light( $hex, $percentage );
     
