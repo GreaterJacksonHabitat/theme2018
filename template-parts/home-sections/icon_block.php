@@ -63,7 +63,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     
     if ( $icon_link ) : ?>
 
-        <a href="<?php echo $icon_link; ?>">
+        <a href="<?php echo $icon_link; ?>"<?php echo ( ! empty( get_sub_field( 'open_link_in_new_tab' ) ) ? ' target="_blank"' : '' ); ?>>
 
     <?php endif; ?>
 
