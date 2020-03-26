@@ -80,6 +80,15 @@
         &, * {
             pointer-events: none;
         }
+
+        p {
+            @each $size, $headers in $header-styles {
+                @include breakpoint($size) {
+                    font-size: rem-calc( map-get-deep( $headers, 'h1', 'font-size' ) );
+                }
+            }
+        }
+
     }
 
 }
