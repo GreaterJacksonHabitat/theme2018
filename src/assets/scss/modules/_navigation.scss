@@ -63,7 +63,8 @@
 }
 
 .is-stuck.sticky-top-bar {
-	@include background-opacity( $primary-color, 0.9 );
+  @include background-opacity( $primary-color, 0.9 );
+  z-index: 999;
 }
 
 .top-bar-container {
