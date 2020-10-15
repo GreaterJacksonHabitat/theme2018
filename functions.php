@@ -219,7 +219,7 @@ remove_action( 'wp_head', array( 'Tribe__Events__Templates', 'wpHeadFinished' ),
 require_once __DIR__ . '/vendor/autoload.php';
 
 use function SSNepenthe\ColorUtils\{
-    rgb, scale_color, is_light
+    rgb, scale_color, is_light, red, green, blue, lightness, desaturate, adjust_hue, color
 };
 
 /**
@@ -270,4 +270,181 @@ function gjh_hex_to_rgb( $hex ) {
 		'b' => $rgb->getBlue(),
 	);
 	
+}
+
+function gjh_color_to_hex( $rgb ) {
+
+	$color = color( $rgb );
+	return $color->toHexString();
+
+}
+
+function gjh_desaturate( $hex, $amount ) {
+	return gjh_color_to_hex( desaturate( $hex, $amount ) );
+}
+
+function gjh_adjust_hue( $hex, $degrees ) {
+	return gjh_color_to_hex( adjust_hue( $hex, $degrees ) );
+}
+
+/**
+ * Copy of the color-luminance() SCSS function from Foundation
+ *
+ * @param   string  $hex  Hex Color
+ *
+ * @since	{{VERSION}}
+ * @return  float         Color Luminance Ratio
+ */
+function gjh_color_luminance( $hex ) {
+
+	$rgb = array( red( $hex ), green( $hex ), blue( $hex ) );
+
+	foreach ( $rgb as &$channel ) {
+		 
+		$ratio = $channel / 255;
+
+		$channel = ( $ratio < 0.03928 ) ? $ratio / 12.92 : pow( ( $ratio + 0.055 ) / 1.055, 2.4 );
+
+	}
+
+	return 0.2126 * $rgb[0] + 0.7152 * $rgb[1] + 0.0722 * $rgb[2];
+
+}
+
+/**
+ * Copy of the color-contrast() SCSS function from Foundation
+ *
+ * @param   string  $color1  Hex Color
+ * @param   string  $color2  Hex Color
+ *
+ * @since	{{VERSION}}
+ * @return  float            Contrast Ratio
+ */
+function gjh_color_contrast( $color1, $color2 ) {
+
+	$luminance1 = gjh_color_luminance( $color1 ) + 0.05;
+	$luminance2 = gjh_color_luminance( $color2 ) + 0.05;
+	$ratio = $luminance1 / $luminance2;
+
+	if ( $luminance2 > $luminance1 ) {
+		$ratio = 1 / $ratio;
+	}
+
+	$ratio = round( $ratio * 10 ) / 10;
+
+	return $ratio;
+
+}
+
+/**
+ * Copy of color-pick-contrast() SCSS function from Foundation
+ * 
+ * This checks the best color for contrast given two colors to pick from
+ * 
+ * Foundation technically lets you feed in a List of multiple colors to check against, but generally speaking you only compare against two colors
+ *
+ * @param   string  $base_color  Hex Color of the base or background
+ * @param   string  $color1      Hex Color
+ * @param   string  $color2      Hex Color
+ * @param   float   $tolerance   Contrast tolerance
+ *
+ * @since	{{VERSION}}
+ * @return  string               Hex Color with the best contrast
+ */
+function gjh_color_pick_contrast( $base_color, $color1 = '#262626', $color2 = '#ffffff', $tolerance = 0 ) {
+
+	$contrast = gjh_color_contrast( $base_color, $color1 );
+
+	// Defaults to color 1
+	$best = $color1;
+
+	// This just makes the rest of the code cleaner
+	$colors = array(
+		$color1,
+		$color2
+	);
+
+	foreach ( $colors as $color ) {
+
+		$current_contrast = gjh_color_contrast( $base_color, $color );
+
+		if ( ( $current_contrast - $contrast ) > $tolerance ) {
+			$contrast = $current_contrast;
+			$best = $color;
+		}
+
+	}
+
+	if ( $contrast < 3 ) {
+		error_log( "Contrast ratio of $best on $base_color is pretty bad. Just $contrast" );
+	}
+
+	return $best;
+
+}
+
+/**
+ * Copy of smart-scale() SCSS function from Foundation
+ * 
+ * This will scale a color to be either lighter or darker as appropriate
+ *
+ * @param   string   $hex        Hex Color
+ * @param   integer  $scale      Percentage to scale the color's Lightess or Darkness by
+ * @param   integer  $threshold  Lightness threshold
+ *
+ * @since	{{VERSION}}
+ * @return  string               Hex Color
+ */
+function gjh_smart_scale( $hex, $scale = 5, $threshold = 40 ) {
+
+	if ( lightness( $hex ) > $threshold ) {
+		$scale = - $scale;
+	}
+
+	return gjh_scale_color( $hex, array( 'lightness' => $scale ) );
+
+}
+
+/**
+ * A copy of my own light-or-dark-text() SCSS mixin
+ *
+ * @param   string  $background_color  Background Color
+ * @param   string  $dark_text_color   Dark Text Color
+ * @param   string  $light_text_color  Light Text Color
+ *
+ * @since	{{VERSION}}
+ * @return  void
+ */
+function gjh_light_or_dark_text( $background_color, $dark_text_color = '#333333', $light_text_color = '#ffffff' ) {
+
+	echo 'color: ' . gjh_color_pick_contrast( $background_color, $dark_text_color, $light_text_color ) . ';';
+
+}
+
+/**
+ * A copy of my own light-or-dark-link() SCSS mixin
+ * 
+ * Due to limitations of vanilla CSS, we need to pass the selector into this function
+ *
+ * @param   string  $selector          CSS Selector
+ * @param   string  $background_color  Background Hex Color
+ * @param   string  $dark_link_color   Dark Link Color
+ * @param   string  $light_link_color  Light Link Color
+ *
+ * @return  string                     [return description]
+ */
+function gjh_light_or_dark_link( $selector, $background_color, $dark_link_color = '#385888', $light_link_color = '#ffffff' ) {
+
+	echo $selector . ' {';
+		echo 'color: ' . gjh_color_pick_contrast( $background_color, $dark_link_color, $light_link_color ) . ';'; 
+	echo '}';
+
+	echo $selector . ':hover, ' . $selector . ':focus {';
+
+		$dark_link_color = gjh_smart_scale( $dark_link_color, 14 );
+		$light_link_color = gjh_smart_scale( $light_link_color, 14 );
+
+		echo 'color: ' . gjh_color_pick_contrast( $background_color, $dark_link_color, $light_link_color ) . ';';
+	echo '}';
+
 }

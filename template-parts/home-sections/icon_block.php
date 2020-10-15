@@ -26,14 +26,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?>.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> p.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h1.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h2.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h3.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h4.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h5.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h6 {
 
+                <?php gjh_light_or_dark_text( $background_color, '#0a0a0a' ); ?>
+
                 <?php if ( ! gjh_is_light( $background_color ) ) : ?>
 
-                    color: #fff;
                     font-weight: 700;
-
-                <?php else : ?>
-
-                    color: #0a0a0a;
 
                 <?php endif; ?>
 
@@ -52,6 +49,16 @@ if ( ! defined( 'ABSPATH' ) ) {
                 background-color: <?php echo $icon_background_color; ?>;
 
             }
+
+            #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> > .icon-block > a:hover .circle, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> > .icon-block > a:focus .circle {
+
+                <?php $hover_color = gjh_smart_scale( $icon_background_color, 14 ); ?>
+
+                background-color: <?php echo $hover_color; ?>;
+
+            }
+
+            <?php gjh_light_or_dark_link( '#home-section-' . $row_count . ' .icon_block.column-' . $column_count . ' > .icon-block > a .circle', $hover_color ); ?>
 
         </style>
 
