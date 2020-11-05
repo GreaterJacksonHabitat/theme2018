@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             }
 
-            #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?>.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> p.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h1.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h2.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h3.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h4.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h5.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h6 {
+            #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> .icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> p.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h1.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h2.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h3.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h4.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h5.icon-block, #home-section-<?php echo $row_count; ?> .icon_block.column-<?php echo $column_count; ?> h6 {
 
                 <?php gjh_light_or_dark_text( $background_color, '#0a0a0a' ); ?>
 
@@ -35,6 +35,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <?php endif; ?>
 
             }
+
+            <?php gjh_light_or_dark_link( '#home-section-' . $row_count . ' .icon_block.column-' . $column_count . ' .icon-block a', $background_color ); ?>
 
         </style>
 
