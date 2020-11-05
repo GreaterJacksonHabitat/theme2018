@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             }
 
-            <?php gjh_light_or_dark_link( '#home-section-' . $row_count . ' .icon_block.column-' . $column_count . ' .icon-block a', $background_color ); ?>
+            <?php gjh_light_or_dark_link( '#home-section-' . $row_count . ' .icon_block.column-' . $column_count . ' .icon-block a:not( .button )', $background_color ); ?>
 
         </style>
 
