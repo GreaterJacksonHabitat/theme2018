@@ -1,13 +1,16 @@
-@mixin light-or-dark-text( $color ) {
+@mixin light-or-dark-text( $background-color, $dark-text-color: $body-font-color ) {
+  
+  color: color-pick-contrast( $background-color, ( $dark-text-color, $white  ) );
+  
+}
 
-  @if lightness( $color ) < 45% {
+@mixin light-or-dark-link( $background-color: $body-background, $dark-link-color: $anchor-color ) {
 
-    color: $light-color;
+  color: color-pick-contrast( $background-color, ( $dark-link-color, $white  ) );
 
-  }
-  @else {
+  &:hover, &:focus {
 
-    color: $dark-color;
+    color: smart-scale( color-pick-contrast( $background-color, ( $dark-link-color, $white  ) ), 14% );
 
   }
 

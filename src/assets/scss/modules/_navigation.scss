@@ -68,10 +68,133 @@
 }
 
 .top-bar-container {
-  background-color: $secondary-color;
+
+  background-color: $white;
+
+  .top-nav {
+    overflow: hidden;
+  }
+
+  .top-bar-menu {
+
+    @include breakpoint( small only ) {
+      float: right;
+    }
+
+    & > li {
+
+      transform: skew( -13deg );
+      transition: background-color 150ms;
+      position: relative;
+
+      &:before {
+        position: absolute;
+        content: "";
+        display: inline-block;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 0;
+        z-index: -1;
+        transition: all 250ms cubic-bezier(0.42, 0, 0.58, 1);
+      }
+
+      &:hover, &:focus {
+
+        &:before {
+          left: 0;
+          right: auto;
+          width: 100%;
+        }
+
+      }
+
+      & > a {
+        transition: color 300ms;
+      }
+
+      &:nth-of-type( 0n + 1 ) {
+
+        background-color: #ff671f;
+
+        &:before {
+          background-color: smart-scale( #ff671f, 14% );
+        }
+
+        & > a {
+
+          @include light-or-dark-link( #ff671f, $body-font-color );
+
+          &:hover {
+            @include light-or-dark-text( smart-scale( #ff671f, 14% ) );
+          }
+
+        }
+
+      }
+
+      &:nth-of-type( 0n + 2 ) {
+
+        background-color: #c4d600;
+
+        &:before {
+          background-color: smart-scale( #c4d600, 14% );
+        }
+
+        & > a {
+
+          @include light-or-dark-link( #c4d600, $body-font-color );
+
+          &:hover {
+            @include light-or-dark-text( smart-scale( #c4d600, 14% ) );
+          }
+
+        }
+
+      }
+
+      &:nth-of-type( 0n + 3 ) {
+
+        background-color: #a4343a;
+
+        &:before {
+          background-color: smart-scale( #a4343a, 14% );
+        }
+
+        & > a {
+
+          @include light-or-dark-link( #a4343a, $body-font-color );
+
+          &:hover {
+            @include light-or-dark-text( smart-scale( #a4343a, 14% ) );
+          }
+
+        }
+
+      }
+
+      &:last-of-type {
+        margin-right: rem-calc( -20 );
+      }
+
+      & > a {
+
+        // Invert the skew to straighten the text
+        transform: skew( 13deg );
+        font-weight: bold;
+        font-size: 1rem;
+        padding-left: 1rem;
+        line-height: 1.8;
+
+      }
+
+    }
+
+  }
+
 }
 
-.top-bar {
+.sticky-container .top-bar {
 
   .top-bar-title a {
     font-size: 1rem;
