@@ -321,16 +321,19 @@
 @include breakpoint(medium) {
   
   .sticky-top-bar {
-    
+
     .top-bar-title {
-      margin-top: -1rem;
-      margin-bottom: 0rem;
+      a {
+        padding: 0;
+        display: inline-block;
+      }
     }
     
     .svg-container {
       
       svg {
       
+        margin-top: .5rem;
         width: 70%;
         height: auto;
         
