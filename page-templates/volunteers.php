@@ -25,6 +25,7 @@ do_action( 'foundationpress_before_content' ); ?>
 	<?php 
 	
 		$sections = greater_jackson_habitat_get_field( 'volunteer_sections' );
+		$sections = ( $sections ) ? $sections : array();
 	
 		foreach ( $sections as $section ) : ?>
 			
@@ -49,6 +50,7 @@ do_action( 'foundationpress_before_content' ); ?>
 <?php 
 
 $faqs = greater_jackson_habitat_get_field( 'volunteer_faqs' );
+$faqs = ( $faqs ) ? $faqs : array();
 
 if ( $faqs ) : ?>
 
