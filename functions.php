@@ -199,5 +199,20 @@ function gjh_tribe_event_featured_image( $featured_image_html, $post_id, $size )
 	return '';
 }
 
+/**
+ * Defers parsing of JS
+ * @since {{VERSION}}
+ */
+
+add_filter( 'script_loader_tag', 'lovefromlouie_defer_js', 10, 3 );
+
+function lovefromlouie_defer_js( $tag, $handle, $src ) {
+	if ( is_admin() ) return $tag;
+    if ( $handle == 'jquery' ) return $tag;
+        
+    $tag = str_replace( 'src', 'defer="defer" src', $tag );
+    return $tag;
+}
+
 // No. Just... no
 remove_action( 'wp_head', array( 'Tribe__Events__Templates', 'wpHeadFinished' ), 999 );
