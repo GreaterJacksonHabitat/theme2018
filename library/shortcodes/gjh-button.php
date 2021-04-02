@@ -2,7 +2,7 @@
 /**
  * Adds the [gjh_button] shortcode
  *
- * @since   {{VERSION}}
+ * @since   1.0.4
  * @package GreaterJacksonHabitatTheme2018
  * @subpackage  GreaterJacksonHabitatTheme2018/library/shortcodes
  */
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Add Button Shortcode
  *
- * @since       {{VERSION}}
+ * @since       1.0.4
  * @return      HTML
  */
 add_shortcode( 'gjh_button', 'add_gjh_button_shortcode' );
