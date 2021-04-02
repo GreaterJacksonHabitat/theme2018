@@ -11,6 +11,9 @@ import fs            from 'fs';
 import webpackStream from 'webpack-stream';
 import webpack2      from 'webpack';
 import named         from 'vinyl-named';
+import compareVersions from 'compare-versions';
+
+var pkg = JSON.parse( fs.readFileSync( './package.json' ) );
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -148,6 +151,34 @@ function tinymce() {
 
 }
 
+function version() {
+	
+  return gulp.src([
+    'admin/**/*',
+    'src/assets/**/*',
+    'core/**/*',
+    'library/**/*',
+    '!core/**/library/**/*',
+    'vendor/**/*',
+    'page-templates/**/*',
+    'template-parts/**/*',
+    '*.php', // Anything at Root should be us
+    'style.css',
+    'readme.txt'
+], { base: './', allowEmpty: true } )
+// Doc block versions, only update on non-Betas and 1.0.0+ releases
+    .pipe( $.if( ( pkg.version.indexOf( 'b' ) == -1 && compareVersions( pkg.version, '1.0.0' ) !== -1 ), $.replace( /\{\{VERSION}}/g, pkg.version ) ) )
+    // Plugin header
+    .pipe($.replace(/(\* Version: ).*/, "$1" + pkg.version))
+    // Version constant
+    .pipe($.replace(/(define\( 'LEARNDASH_GRADEBOOK_VERSION', ').*(' \);)/, "$1" + pkg.version + "$2"))
+    // readme.txt
+.pipe( $.replace( /(Stable tag: ).*/, function( match, captureGroup, offset, file ) {
+  return captureGroup + pkg.version; // This really shouldn't be necessary, but it wouldn't work otherwise
+} ) )
+    .pipe(gulp.dest('./'));
+}
+
 // Copy images to the "dist" folder
 // In production, the images are compressed
 function images() {
@@ -185,3 +216,5 @@ function watch() {
   gulp.watch('src/assets/js/**/*.js').on('all', gulp.series(javascript, tinymce, browser.reload));
   gulp.watch('src/assets/img/**/*').on('all', gulp.series(images, browser.reload));
 }
+
+gulp.task( 'version', version );
