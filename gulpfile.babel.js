@@ -129,7 +129,7 @@ function javascript() {
     .pipe($.if(PRODUCTION, $.uglify()
       .on('error', e => { console.log(e); })
     ))
-    .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
+    .pipe($.if(!PRODUCTION, $.sourcemaps.write('.')))
     .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev()))
     .pipe(gulp.dest(PATHS.dist + '/assets/js'))
     .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest()))
