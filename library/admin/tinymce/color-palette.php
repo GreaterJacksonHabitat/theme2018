@@ -2,7 +2,7 @@
 /**
  * Edit the Color Palette so only Theme Colors are available
  *
- * @since   1.0.4
+ * @since   1.0.1
  * @package GreaterJacksonHabitatTheme2018
  * @subpackage  GreaterJacksonHabitatTheme2018/library/admin/tinymce
  */
@@ -19,7 +19,7 @@ add_filter( 'tiny_mce_before_init', 'gjh_tinymce_color_palette' );
  * 
  * @param		array $options TinyMCE Options
  *                                
- * @since		1.0.4
+ * @since		1.0.1
  * @return		array TinyMCE Options
  */
 function gjh_tinymce_color_palette( $options ) {

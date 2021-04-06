@@ -2,7 +2,7 @@
 /**
  * Add a TinyMCE button to create [gjh_button] Shortcodes
  *
- * @since   1.0.4
+ * @since   1.0.1
  * @package GreaterJacksonHabitatTheme2018
  * @subpackage  GreaterJacksonHabitatTheme2018/library/admin/tinymce
  */
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Add Button Shortcode to TinyMCE
  *
- * @since       1.0.4
+ * @since       1.0.1
  * @return      void
  */
 add_action( 'admin_init', 'add_gjh_button_tinymce_filters' );
@@ -41,7 +41,7 @@ function add_gjh_button_tinymce_filters() {
 /**
  * Add Localized Text for our TinyMCE Button
  *
- * @since       1.0.4
+ * @since       1.0.1
  * @return      Array Localized Text
  */
 add_filter( 'gjh_tinymce_l10n', 'gjh_button_tinymce_l10n' );

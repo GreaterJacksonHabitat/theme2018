@@ -2,7 +2,7 @@
 /**
  * Customizer Additions
  *
- * @since   1.0.4
+ * @since   1.0.1
  * @package GreaterJacksonHabitatTheme2018
  * @subpackage GreaterJacksonHabitatTheme2018/library
  */

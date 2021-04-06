@@ -5,7 +5,7 @@
      * 
      * @param       {object} choices Choices Object from our Localized JSON
      *                               
-     * @since       1.0.4
+     * @since       1.0.1
      * @returns     {Array}  Array of TinyMCE Listbox Choices
      */
     function gjh_generate_tinymce_listbox( choices ) {
