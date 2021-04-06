@@ -59,7 +59,6 @@ require_once( 'library/responsive-images.php' );
 
 global $greater_jackson_habitat_field_helpers;
 
-require_once( 'library/rbm-field-helpers/rbm-field-helpers.php' );
 $greater_jackson_habitat_field_helpers = new RBM_FieldHelpers( array(
     'ID'   => 'greater_jackson_habitat', // Your Theme/Plugin uses this to differentiate its instance of RBM FH from others when saving/grabbing data
     'l10n' => array(
