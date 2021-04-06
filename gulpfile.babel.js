@@ -156,6 +156,7 @@ function version() {
   return gulp.src([
     'admin/**/*',
     'src/assets/**/*',
+    '!src/assets/images/**/*',
     'core/**/*',
     'library/**/*',
     '!core/**/library/**/*',
@@ -169,7 +170,7 @@ function version() {
 // Doc block versions, only update on non-Betas and 1.0.0+ releases
     .pipe( $.if( ( pkg.version.indexOf( 'b' ) == -1 && compareVersions( pkg.version, '1.0.0' ) !== -1 ), $.replace( /\{\{VERSION}}/g, pkg.version ) ) )
     // Plugin header
-    .pipe($.replace(/(\* Version: ).*/, "$1" + pkg.version))
+    .pipe($.replace(/(\[*\s*]?Version: ).*/, "$1" + pkg.version))
     // Version constant
     .pipe($.replace(/(define\( 'LEARNDASH_GRADEBOOK_VERSION', ').*(' \);)/, "$1" + pkg.version + "$2"))
     // readme.txt
