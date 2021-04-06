@@ -2,7 +2,7 @@
 /**
  * Localize TinyMCE Plugins
  *
- * @since   1.0.4
+ * @since   1.0.1
  * @package GreaterJacksonHabitatTheme2018
  * @subpackage  GreaterJacksonHabitatTheme2018/library/admin/tinymce
  */
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * wp_localize_script() doesn't work on non-enqueued scripts like TinyMCE Plugins
  * So we're going to fake it!
  *
- * @since       1.0.4
+ * @since       1.0.1
  * @return      void
  */
 add_action( 'before_wp_tiny_mce', 'gjh_localize_tinymce' );

