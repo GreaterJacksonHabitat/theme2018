@@ -56,18 +56,6 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 			'all'
 		);
 
-		// Deregister the jquery version bundled with WordPress.
-		wp_deregister_script( 'jquery' );
-
-		// CDN hosted jQuery placed in the header, as some plugins require that jQuery is loaded in the header.
-		wp_enqueue_script(
-			'jquery',
-			'//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js',
-			array(),
-			'3.2.1', // jQuery version, not Theme version
-			false
-		);
-
 		// Enqueue Founation scripts
 		wp_enqueue_script(
 			'foundation',
@@ -82,6 +70,14 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 			wp_enqueue_script( 'comment-reply' );
 		}
 
+        /**
+         * Unregisteres WP comment reply scrip to fix passive listeners issue
+         * since the feature is not being used on the site anyways.
+         */
+        function wp_dereg_script_comment_reply(){
+            wp_deregister_script( 'comment-reply' );
+        }
+        add_action('init','wp_dereg_script_comment_reply');
 	}
 
 	add_action( 'wp_enqueue_scripts', 'foundationpress_scripts' );
