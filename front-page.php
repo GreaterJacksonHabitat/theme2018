@@ -17,7 +17,7 @@ while ( have_posts() ) : the_post(); ?>
 			
 			<?php if ( has_post_thumbnail() ) : ?>
 			
-				<div class="image" style="background-image: url('<?php echo the_post_thumbnail_url('full'); ?>;">
+				<div class="image" style="background-image: url('<?php echo the_post_thumbnail_url('full'); ?>');">
 				</div>
 			
 			<?php endif; ?>
